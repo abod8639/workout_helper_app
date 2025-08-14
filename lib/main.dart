@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_helper_app/view/pages/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,24 +16,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(),
-    );
-  }
-}
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'Hello, World!',
-          style: TextStyle(
-            fontSize: 24,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-      ),
     );
   }
 }
