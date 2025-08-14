@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
+import 'package:workout_helper_app/view/pages/calorie_tracker_page.dart';
+import 'package:workout_helper_app/view/pages/heart_rate_stats_page.dart';
+import 'package:workout_helper_app/view/widgets/MyBottomAppBar.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final PageController _pageController = PageController();
+  int _currentIndex = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  void _navigateToPage(int index) {
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: MyBottomAppBar(
+        currentIndex: _currentIndex,
+        onTap: _navigateToPage,
+      ),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        physics: const NeverScrollableScrollPhysics(),
+        children: const [
+          MyHomePage(),
+          HeartRateStatsPage(),
+          CalorieTrackerPage(),
+        ],
+      ),
+    );
+  }
+}

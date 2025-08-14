@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_helper_app/app/theme.dart';
-import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
+import 'package:workout_helper_app/view/pages/Home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: darkTheme,
-      home: const MyHomePage(),
+      home: const Home(),
     );
   }
 }

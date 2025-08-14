@@ -7,11 +7,13 @@ Widget taskInput() {
       child: TextFormField(
         controller: taskInputController,
         decoration: InputDecoration(
-          labelText: 'Enter your task',
-          labelStyle:  TextStyle(color: Colors.green[800]),
+          labelText: '  Enter your task',
+          labelStyle:  TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.green[800]!),
+            borderSide: BorderSide(color: Colors.black),
           ),
           filled: true,
           fillColor: Colors.white,

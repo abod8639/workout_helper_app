@@ -13,27 +13,7 @@ class HeartRateStatsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Text(
-                    'Heart Rate Stats',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.more_vert, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
+
               const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.all(16),
