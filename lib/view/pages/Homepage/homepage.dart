@@ -1,56 +1,15 @@
 import 'package:flutter/material.dart';
-import 'heart_rate_stats_page.dart';
-import 'calorie_tracker_page.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/buildNavigationButton.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/taskInput.dart';
+import '../heart_rate_stats_page.dart';
+import '../calorie_tracker_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
-  Widget _buildNavigationButton(
-    BuildContext context,
-    String title,
-    VoidCallback onPressed,
-  ) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.green[800],
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-  }
 
-  Widget taskInput() {
-    TextEditingController taskInputController = TextEditingController();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextFormField(
-        controller: taskInputController,
-        decoration: InputDecoration(
-          labelText: 'Enter your task',
-          labelStyle:  TextStyle(color: Colors.green[800]),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.green[800]!),
-          ),
-          filled: true,
-          fillColor: Colors.white,
-        ),
-        style: const TextStyle(color: Colors.black),
-      ),
-    );
-  }
+
+
 
 
 
@@ -84,7 +43,7 @@ class MyHomePage extends StatelessWidget {
               const SizedBox(height: 20),
 
               const SizedBox(height: 20),
-              _buildNavigationButton(
+              buildNavigationButton(
                 context,
                 'Heart Rate Stats',
                 () => Navigator.push(
@@ -95,7 +54,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              _buildNavigationButton(
+              buildNavigationButton(
                 context,
                 'Calorie Tracker',
                 () => Navigator.push(
