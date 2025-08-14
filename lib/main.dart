@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_helper_app/app/theme.dart';
-import 'package:workout_helper_app/view/pages/homepage.dart';
+import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
 
 void main() {
   runApp(const MyApp());
