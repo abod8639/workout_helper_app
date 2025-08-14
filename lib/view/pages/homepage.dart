@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'virtual_coach_page.dart';
 import 'heart_rate_stats_page.dart';
 import 'calorie_tracker_page.dart';
 
@@ -53,7 +52,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  
+
 
 
 
@@ -61,13 +60,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.green[800]!, Colors.green[600]!],
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment.topCenter,
+        //     end: Alignment.bottomCenter,
+        //     // colors: [Colors.green[800]!, Colors.green[600]!],
+        //   ),
+        // ),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -83,16 +82,7 @@ class MyHomePage extends StatelessWidget {
               const SizedBox(height: 50),
               taskInput(),
               const SizedBox(height: 20),
-              _buildNavigationButton(
-                context,
-                'Virtual AI Coach',
-                () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const VirtualCoachPage(),
-                  ),
-                ),
-              ),
+
               const SizedBox(height: 20),
               _buildNavigationButton(
                 context,
