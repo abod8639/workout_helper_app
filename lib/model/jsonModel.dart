@@ -2,8 +2,11 @@
 
 
 class TimeModel{
+
  int? hour;
  int? minute;
+
+
   TimeModel({this.hour, this.minute});
   
   TimeModel.fromJson(Map<String, dynamic> json) {
@@ -14,8 +17,10 @@ class TimeModel{
 }
 
 class TaskModel {
+
   String? id;
   TimeModel? time;
+
 
   TaskModel({this.id, this.time});
   TaskModel.fromJson(Map<String, dynamic> json) {
@@ -23,3 +28,4 @@ class TaskModel {
     time = json['time'] != null ? TimeModel.fromJson(json['time']) : null;
   }
 }
+

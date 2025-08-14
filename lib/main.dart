@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_helper_app/app/theme.dart';
 import 'package:workout_helper_app/view/pages/homepage.dart';
 
 void main() {
@@ -11,10 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: darkTheme,
       home: const MyHomePage(),
     );
   }

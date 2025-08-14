@@ -1,3 +1,7 @@
 {
-  "jdk.advanced.disable.nbjavac": false
+  "jdk.advanced.disable.nbjavac": false,
+  "files.readonlyInclude": {
+    "{**/.c4z/.extsrcs/*.PROTSYM.cbl,**/.c4z/.extsrcs/*.PROTSYM.listing}": true
+  },
+  "cmake.ignoreCMakeListsMissing": true
 }
