@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/jsonModel.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/taskCard.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/taskInput.dart';
@@ -75,7 +74,7 @@ class MyHomePage extends StatelessWidget {
                             TaskModel(
                               name: "Push-ups",
                               time: TaskTime(
-                                hour: 2,
+                                hour: 1,
                                 minute: 50
                                 )),
                           ],
@@ -92,6 +91,7 @@ class MyHomePage extends StatelessWidget {
                             TaskModel(
                               name: "Squats",
                               time: TaskTime(
+                                test: "hello world",
                                 hour: 4,
                                 minute: 20
                                 )),

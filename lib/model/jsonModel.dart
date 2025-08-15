@@ -43,18 +43,21 @@ class TaskModel {
 class TaskTime {
   final int hour;
   final int minute;
+  final String? test;
 
-  TaskTime({required this.hour, required this.minute});
+  TaskTime({required this.hour, required this.minute, this.test});
 
   factory TaskTime.fromJson(Map<String, dynamic> json) {
-    return TaskTime(hour: json['hour'] ?? 0, minute: json['minute'] ?? 0);
+    return TaskTime(
+      hour: json['hour'] ?? 0,
+      minute: json['minute'] ?? 0,
+      test: json['test'] ?? '',
+    );
   }
 }
 
 class TaskService {
   final String esp32Url = "http://192.168.1.4/tasks";
-
-  // TaskService({required this.esp32Url});
 
   Future<bool> sendTasks(List<TaskModel> tasks ) async {
     try {
@@ -62,10 +65,9 @@ class TaskService {
           .map(
             (e) => {
               "name": e.name,
-              "time": {"hour": e.time.hour, "minute": e.time.minute},
+              "time": {"hour": e.time.hour, "minute": e.time.minute, "test": e.time.test},
             },
-          )
-          .toList();
+              ).toList();
 
       final response = await http.post(
         Uri.parse(esp32Url),
