@@ -1,30 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-// class TimeModel {
-//   int? hour;
-//   int? minute;
-
-//   TimeModel({this.hour, this.minute});
-
-//   TimeModel.fromJson(Map<String, dynamic> json) {
-//     hour   = json['hour'];
-//     minute = json['minute'];
-//   }
-// }
-
-// class TaskModel {
-//   String? id;
-//   String? name;
-//   TimeModel? time;
-
-//   TaskModel({this.id, this.name, this.time});
-//   TaskModel.fromJson(Map<String, dynamic> json) {
-//     id   = json['id'];
-//     name = json['name'];
-//     time = json['time'] != null ? TimeModel.fromJson(json['time']) : null;
-//   }
-// }
 
 class TaskModel {
   final String name;
