@@ -1,5 +1,4 @@
 
-
 class TaskModel {
   final String name;
   final TaskTime time;
@@ -29,5 +28,3 @@ class TaskTime {
     );
   }
 }
-
-

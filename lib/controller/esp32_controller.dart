@@ -55,22 +55,6 @@ class ESP32Controller extends GetxController {
       return false;
     }
   }
-  //   try {
-  //     final url = Uri.parse('http://$fullIP/$tasks');
-  //     final response = await http.post(url, body: json.encode(tasks));
-
-  //     if (response.statusCode == 200) {
-  //       debugPrint('✅ Task [$tasks] sent successfully');
-  //       return true;
-  //     } else {
-  //       debugPrint('❌ Failed: ${response.statusCode}');
-  //       return false;
-  //     }
-  //   } catch (error) {
-  //     debugPrint('⚠️ Error sending request: $error');
-  //     return false;
-  //   }
-  // }
 }
 
 
