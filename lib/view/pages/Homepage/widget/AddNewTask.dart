@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/jsonModel.dart';
@@ -8,14 +7,11 @@ class AddNewTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white.withOpacity(0.2),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       onPressed: () {
         _showAddTaskDialog(context);
@@ -39,10 +35,10 @@ class AddNewTask extends StatelessWidget {
   }
 
   void _showAddTaskDialog(BuildContext context) {
-
     String taskName = '';
     int hours = 0;
     int minutes = 0;
+    String testString = '';
 
     showDialog(
       context: context,
@@ -60,43 +56,20 @@ class AddNewTask extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextField(
-                  style: const TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    labelText: 'Exercise Name',
-                    labelStyle: const TextStyle(color: Colors.white70),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Colors.white30),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Colors.white),
-                    ),
-                  ),
+                buildInputField(
+                  keyboardType: TextInputType.text,
+                  hintText: 'Exercise Name',
                   onChanged: (value) {
                     taskName = value;
                   },
                 ),
+
                 const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
-                      child: TextField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: 'Hours',
-                          labelStyle: const TextStyle(color: Colors.white70),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Colors.white30),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Colors.white),
-                          ),
-                        ),
+                      child: buildInputField(
+                        hintText: 'Hours',
                         onChanged: (value) {
                           hours = int.tryParse(value) ?? 0;
                         },
@@ -104,28 +77,23 @@ class AddNewTask extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
                     Expanded(
-                      child: TextField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: 'Minutes',
-                          labelStyle: const TextStyle(color: Colors.white70),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Colors.white30),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(color: Colors.white),
-                          ),
-                        ),
+                      child: buildInputField(
+                        hintText: 'Minutes',
                         onChanged: (value) {
                           minutes = int.tryParse(value) ?? 0;
                         },
                       ),
                     ),
+                    // const SizedBox(width: 16),
                   ],
                 ),
+                const SizedBox(height: 16),
+                buildInputField(
+                  keyboardType: TextInputType.text,
+                  hintText: 'test string',
+                  onChanged: (value) {
+                  testString = value;
+                }),
               ],
             ),
           ),
@@ -145,23 +113,48 @@ class AddNewTask extends StatelessWidget {
               ),
               onPressed: () {
                 if (taskName.isNotEmpty) {
-                 sendTask([
+                  sendTask([
                     TaskModel(
                       name: taskName,
-                      time: TaskTime(hour: hours, minute: minutes),
+                      time: TaskTime(
+                        hour: hours,
+                        minute: minutes,
+                        test: testString,
+                      ),
                     ),
                   ]);
                   Navigator.of(context).pop();
                 }
               },
-              child: const Text(
-                'Add',
-                style: TextStyle(color: Colors.white),
-              ),
+              child: const Text('Add', style: TextStyle(color: Colors.white)),
             ),
           ],
         );
       },
     );
   }
+}
+
+Widget buildInputField({
+  onChanged,
+  hintText,
+  keyboardType = TextInputType.number,
+}) {
+  return TextField(
+    style: const TextStyle(color: Colors.white),
+    keyboardType: TextInputType.number,
+    decoration: InputDecoration(
+      labelText: hintText,
+      labelStyle: const TextStyle(color: Colors.white70),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: Colors.white30),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: Colors.white),
+      ),
+    ),
+    onChanged: onChanged,
+  );
 }

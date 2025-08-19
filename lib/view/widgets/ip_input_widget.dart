@@ -17,6 +17,10 @@ class IPInputField extends StatelessWidget {
         decoration: InputDecoration(
           labelText: 'ESP32 IP',
           prefixText: ESP32Controller.ipPrefix,
+          prefixStyle: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
           labelStyle: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,

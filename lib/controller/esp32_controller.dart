@@ -27,7 +27,7 @@ class ESP32Controller extends GetxController {
   void updateESP32IP(String newIP) {
     if (newIP.isNotEmpty) {
       esp32IP.value = '$ipPrefix$newIP';
-      debugPrint('✅ ESP32 IP updated: ${esp32IP.value}');
+      debugPrint(' ESP32 IP updated: ${esp32IP.value}');
     }
   }
 

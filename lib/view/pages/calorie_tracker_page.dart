@@ -40,9 +40,9 @@ class CalorieTrackerPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildNutrientCard('Carbs', '281/305g', 0.92),
-                  _buildNutrientCard('Protein', '20/182g', 0.11),
-                  _buildNutrientCard('Fat', '120/210g', 0.57),
+                  buildNutrientCard('Carbs', '281/305g', 0.92),
+                  buildNutrientCard('Protein', '20/182g', 0.11),
+                  buildNutrientCard('Fat', '120/210g', 0.57),
                 ],
               ),
               const SizedBox(height: 30),
@@ -109,8 +109,8 @@ class CalorieTrackerPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildNutrientCard(String title, String value, double progress) {
+}
+  Widget buildNutrientCard(String title, String value, double progress) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -149,4 +149,4 @@ class CalorieTrackerPage extends StatelessWidget {
       ),
     );
   }
-}
+
