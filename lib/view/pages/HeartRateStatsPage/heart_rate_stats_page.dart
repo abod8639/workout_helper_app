@@ -86,19 +86,19 @@ class HeartRateStatsPage extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: [
-                    _buildWorkoutTile(
+                    buildWorkoutTile(
                       'Pre-Workout stretch',
                       '60bpm',
                       '92min',
                       Colors.blue,
                     ),
-                    _buildWorkoutTile(
+                    buildWorkoutTile(
                       'HIIT cardio interval',
                       '112bpm',
                       '78min',
                       Colors.orange,
                     ),
-                    _buildWorkoutTile(
+                    buildWorkoutTile(
                       'Lower Body Training',
                       '95bpm',
                       '65min',
@@ -114,7 +114,7 @@ class HeartRateStatsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildWorkoutTile(
+  Widget buildWorkoutTile(
       String title, String bpm, String duration, Color color) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
