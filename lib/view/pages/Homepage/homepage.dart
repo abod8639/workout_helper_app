@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:workout_helper_app/controller/esp32_controller.dart';
 import 'package:workout_helper_app/model/jsonModel.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/AddNewTask.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/TaskList.dart';
+import 'package:workout_helper_app/view/widgets/ip_input_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});

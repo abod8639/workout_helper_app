@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:workout_helper_app/controller/esp32_controller.dart';
+import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/jsonModel.dart';
 
 class AddNewTask extends StatelessWidget {
@@ -40,7 +39,6 @@ class AddNewTask extends StatelessWidget {
   }
 
   void _showAddTaskDialog(BuildContext context) {
-            final controller = Get.find<ESP32Controller>();
 
     String taskName = '';
     int hours = 0;
@@ -147,7 +145,7 @@ class AddNewTask extends StatelessWidget {
               ),
               onPressed: () {
                 if (taskName.isNotEmpty) {
-                 controller.sendTask([
+                 sendTask([
                     TaskModel(
                       name: taskName,
                       time: TaskTime(hour: hours, minute: minutes),
