@@ -110,9 +110,8 @@ class AddNewTask extends StatelessWidget {
                     if (pickedTime != null) {
                       setState(() {
                         selectedTime = pickedTime;
-                        // تحديث الحقول مباشرة
-                        hoursController.text = pickedTime.hour.toString();
-                        minutesController.text = pickedTime.minute.toString();
+                        hoursController.text = pickedTime.hour.toString().replaceAll(":", "");
+                        minutesController.text = pickedTime.minute.toString().replaceAll("AM", "").replaceAll("PM", "");
                       });
                     }
                   },
@@ -129,8 +128,8 @@ class AddNewTask extends StatelessWidget {
                   ),
                   onPressed: () {
                     final taskName = exerciseNameController.text.trim();
-                    final hours = int.tryParse(hoursController.text) ?? 0;
-                    final minutes = int.tryParse(minutesController.text) ?? 0;
+                    final hours = int.tryParse(hoursController.text.trim()) ?? 0;
+                    final minutes = int.tryParse(minutesController.text.trim()) ?? 0;
                     final testString = testStringController.text.trim();
 
                     if (taskName.isNotEmpty) {
@@ -145,10 +144,6 @@ class AddNewTask extends StatelessWidget {
                         ),
                       ]);
                       Get.back();
-                      print("------------------------------------");
-                      print(hours);
-                      print(minutes);
-                      print(testString);
                     }
                   },
                   child: const Text(
