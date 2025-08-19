@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 
 
 class TaskModel {
@@ -32,29 +30,4 @@ class TaskTime {
   }
 }
 
-class TaskService {
-  final String esp32Url = "http://192.168.1.4/tasks";
 
-  Future<bool> sendTasks(List<TaskModel> tasks ) async {
-    try {
-      final jsonData = tasks
-          .map(
-            (e) => {
-              "name": e.name,
-              "time": {"hour": e.time.hour, "minute": e.time.minute, "test": e.time.test},
-            },
-              ).toList();
-
-      final response = await http.post(
-        Uri.parse(esp32Url),
-        headers: {"Content-Type": "application/json"},
-        body: json.encode(jsonData),
-      );
-
-      return response.statusCode == 200;
-    } catch (e) {
-      print("Error: $e");
-      return false;
-    }
-  }
-}
