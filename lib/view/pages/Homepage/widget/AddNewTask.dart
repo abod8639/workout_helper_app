@@ -7,8 +7,9 @@ class AddNewTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white.withOpacity(0.2),
+        backgroundColor: Colors.white.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
@@ -16,7 +17,7 @@ class AddNewTask extends StatelessWidget {
       child: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.add, color: Colors.white),
+          Icon(Icons.add, color: Colors.blue),
           SizedBox(width: 8),
           Text(
             "Add New Exercise",

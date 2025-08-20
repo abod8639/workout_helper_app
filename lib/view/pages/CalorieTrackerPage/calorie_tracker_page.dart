@@ -8,6 +8,7 @@ class CalorieTrackerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: const Text('Calorie Tracker'),
         centerTitle: true,
@@ -48,7 +49,7 @@ class CalorieTrackerPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             SizedBox(
-              height: 200,
+              height: 230,
               child: BarChart(
                 BarChartData(
                   alignment: BarChartAlignment.spaceAround,
@@ -97,7 +98,7 @@ class CalorieTrackerPage extends StatelessWidget {
                           return SideTitleWidget(
                             meta: meta,
                             // axisSide: meta.axisSide,
-                            space: 16.0,
+                            space: 5.0,
                             child: text,
                           );
                         },
@@ -116,7 +117,7 @@ class CalorieTrackerPage extends StatelessWidget {
                     show: false,
                   ),
                   barGroups: [
-                    BarChartGroupData(x: 0, barRods: [BarChartRodData(toY: 8, color: Theme.of(context).primaryColor)]),
+                    BarChartGroupData(x: 0, barRods: [BarChartRodData(toY: 8,  color: Theme.of(context).primaryColor)]),
                     BarChartGroupData(x: 1, barRods: [BarChartRodData(toY: 10, color: Theme.of(context).primaryColor)]),
                     BarChartGroupData(x: 2, barRods: [BarChartRodData(toY: 14, color: Theme.of(context).primaryColor)]),
                     BarChartGroupData(x: 3, barRods: [BarChartRodData(toY: 15, color: Theme.of(context).primaryColor)]),
