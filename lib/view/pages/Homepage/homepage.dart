@@ -8,7 +8,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Container(
         child: SafeArea(
@@ -39,26 +38,26 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-
 }
-  Padding title() {
-    return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                'Workout Helper',
-                style: TextStyle(
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withAlpha(150),
-                      offset: const Offset(0, 2),
-                      blurRadius: 4,
-                    ),
-                  ],
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 1.2,
-                ),
-              ),
-            );
-  }
+
+Padding title() {
+  return Padding(
+    padding: const EdgeInsets.all(20.0),
+    child: Text(
+      'Workout Helper',
+      style: TextStyle(
+        shadows: [
+          Shadow(
+            color: Colors.black.withAlpha(150),
+            offset: const Offset(0, 2),
+            blurRadius: 4,
+          ),
+        ],
+        fontSize: 36,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        letterSpacing: 1.2,
+      ),
+    ),
+  );
+}

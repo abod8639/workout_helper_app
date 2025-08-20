@@ -20,7 +20,7 @@ void showAddTaskDialog(BuildContext context) {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: const Color(0xFF2C5364),
+              backgroundColor: const Color.fromARGB(255, 52, 69, 77),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
