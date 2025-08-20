@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:workout_helper_app/app/theme.dart';
-import 'package:workout_helper_app/controller/esp32_controller.dart';
+
+import 'package:workout_helper_app/function/initGetX.Getx.dart';
 import 'package:workout_helper_app/view/pages/Home.dart';
 
+import 'package:workout_helper_app/app/theme.dart';
+
 void main() {
-    Get.put(ESP32Controller()); // Register once
+  initGetX();
   runApp(const MyApp());
 }
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: darkTheme,
+      theme: AppTheme.darkTheme,
       home: const Home(),
     );
   }

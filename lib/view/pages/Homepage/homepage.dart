@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/AddNewTask.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/TaskList.dart';
-import 'package:workout_helper_app/view/widgets/ip_input_widget.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/ip_input_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -11,17 +11,17 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              const Color(0xFF2C5364), // Deep blue
-              const Color(0xFF203A43), // Mid blue
-              const Color(0xFF0F2027), // Dark blue
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     colors: [
+        //       const Color(0xFF2C5364), // Deep blue
+        //       const Color(0xFF203A43), // Mid blue
+        //       const Color(0xFF0F2027), // Dark blue
+        //     ],
+        //     begin: Alignment.topCenter,
+        //     end: Alignment.bottomCenter,
+        //   ),
+        // ),
         child: SafeArea(
           child: Column(
             children: [

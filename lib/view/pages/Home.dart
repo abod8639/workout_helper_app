@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
-import 'package:workout_helper_app/view/pages/calorie_tracker_page.dart';
-import 'package:workout_helper_app/view/pages/heart_rate_stats_page.dart';
+import 'package:workout_helper_app/view/pages/CalorieTrackerPage/calorie_tracker_page.dart';
+import 'package:workout_helper_app/view/pages/HeartRateStatsPage/heart_rate_stats_page.dart';
 import 'package:workout_helper_app/view/widgets/MyBottomAppBar.dart';
 
 class Home extends StatefulWidget {
