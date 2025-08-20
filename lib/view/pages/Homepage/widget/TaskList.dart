@@ -34,6 +34,21 @@ class TaskList extends StatelessWidget {
             },
           ),
           taskCard(
+            title: "Puzzer-toggle",
+            imageUrl:
+                "https://i.pinimg.com/736x/7d/58/ed/7d58ed71e86237abc1f31b67d8f08639.jpg",
+            onTap: () {
+              sendTask([
+                TaskModel(
+                  name: "Puzzer-toggle",
+                  time: TaskTime(hour: 1, minute: 50, test: "puzzer-toggle"),
+                ),
+              ]);
+              print(controller.esp32IP.value);
+              print(controller.fullIP.toString());
+            },
+          ),
+          taskCard(
             title: "Push-ups",
             imageUrl:
                 "https://i.pinimg.com/1200x/7d/ab/36/7dab366ba4ec4013637117176b94ebed.jpg",

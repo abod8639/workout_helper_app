@@ -11,9 +11,7 @@ class IPInputField extends StatelessWidget {
 
     return Card(
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -21,15 +19,28 @@ class IPInputField extends StatelessWidget {
           children: [
             Text(
               'ESP32 IP Address',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             TextFormField(
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white
+              ),
               controller: controller.ipInputController,
               onChanged: controller.updateESP32IP,
               decoration: InputDecoration(
                 prefixText: ESP32Controller.ipPrefix,
                 hintText: 'Enter IP address',
+                prefixStyle: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                ),
+
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
