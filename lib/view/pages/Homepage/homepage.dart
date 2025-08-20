@@ -39,24 +39,48 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
-Padding title() {
-  return Padding(
-    padding: const EdgeInsets.all(20.0),
-    child: Text(
-      'Workout Helper',
-      style: TextStyle(
-        shadows: [
-          Shadow(
-            color: Colors.black.withAlpha(150),
-            offset: const Offset(0, 2),
-            blurRadius: 4,
+Widget title() {
+  return Builder(
+    builder: (context) => Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Theme.of(context).shadowColor.withOpacity(0.2),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Icon(
+              Icons.sports_gymnastics,
+              color: Theme.of(context).colorScheme.onPrimary,
+              size: 32,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Text(
+            'Workout Helper',
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                  shadows: [
+                    Shadow(
+                      color: Theme.of(context).shadowColor.withOpacity(0.3),
+                      offset: const Offset(0, 2),
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
           ),
         ],
-        fontSize: 36,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-        letterSpacing: 1.2,
       ),
     ),
   );
