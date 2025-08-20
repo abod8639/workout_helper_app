@@ -20,10 +20,11 @@ Widget taskCard({
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 2,
-              blurRadius: 2,
-              offset: const Offset(0, 1), // changes position of shadow
+              blurStyle: BlurStyle.outer,
+              color: Colors.black45,
+              blurRadius: 10,
+              // spreadRadius: 1,
+              offset: const Offset(0, -5), // changes position of shadow
             ),
           ],
         ),
