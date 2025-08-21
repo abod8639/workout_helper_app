@@ -86,14 +86,6 @@ class TaskList extends StatelessWidget {
             imageUrl:
                 "https://i.pinimg.com/736x/7d/58/ed/7d58ed71e86237abc1f31b67d8f08639.jpg",
             onTap: () {
-              Get.showSnackbar(
-                GetSnackBar(
-
-                  title: "Send",
-                  message: "Task sent successfully!",
-                  duration: const Duration(seconds: 1),
-                ),
-              );
               sendTask([
                 TaskModel(
                   name: "Puzzer-toggle",

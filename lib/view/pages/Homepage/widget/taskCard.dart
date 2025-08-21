@@ -16,22 +16,24 @@ Widget taskCard({
         borderRadius: BorderRadius.circular(16),
         splashColor: Colors.white24,
         highlightColor: Colors.white10,
-        onTap:(){
+        onTap: () {
           onTap?.call();
-                        Get.showSnackbar(
-                GetSnackBar(
-
-                  title: "Send",
-                  message: "Task sent successfully!",
-                  duration: const Duration(seconds: 1),
-                ),
-              );
+          Get.showSnackbar(
+            GetSnackBar(
+              title: "Send",
+              message: "Task sent successfully!",
+              duration: const Duration(seconds: 1),
+            ),
+          );
         },
         child: Container(
           height: 160,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(imageUrl ?? "https://i.pinimg.com/1200x/d9/11/12/d911121ad1e2592a6031e89c730f086c.jpg"),
+              image: NetworkImage(
+                imageUrl ??
+                    "https://i.pinimg.com/1200x/d9/11/12/d911121ad1e2592a6031e89c730f086c.jpg",
+              ),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(16),
@@ -42,10 +44,7 @@ Widget taskCard({
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Colors.transparent,
-                  Colors.black.withOpacity(0.7),
-                ],
+                colors: [Colors.transparent, Colors.black.withOpacity(0.7)],
               ),
             ),
             child: Padding(
