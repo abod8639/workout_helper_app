@@ -77,8 +77,8 @@ class TaskList extends StatelessWidget {
           ),
           TaskCard(
             title: "Jumping Jacks",
-            imageUrl:
-                "https://i.pinimg.com/736x/ea/fb/f0/eafbf0d366919fe111f07a6953850ef4.jpg",
+            // imageUrl:
+                // "https://i.pinimg.com/736x/ea/fb/f0/eafbf0d366919fe111f07a6953850ef4.jpg",
             onTap: () {},
           ),
                     TaskCard(

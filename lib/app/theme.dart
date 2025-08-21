@@ -16,7 +16,7 @@ class AppTheme {
     hintColor: _accentLight,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      color: _primaryLight,
+      backgroundColor: _primaryLight,
       iconTheme: IconThemeData(color: Colors.white),
     ),
     textTheme: const TextTheme(
@@ -42,14 +42,12 @@ class AppTheme {
       primary: _primaryDark,
       secondary: _accentDark,
       surface: _surfaceDark,
-      background: _backgroundDark,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
       onSurface: _textDark,
-      onBackground: _textDark,
     ),
     appBarTheme: const AppBarTheme(
-      color: _surfaceDark,
+      backgroundColor: _surfaceDark,
       iconTheme: IconThemeData(color: _textDark),
       elevation: 0,
     ),

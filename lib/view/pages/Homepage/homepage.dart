@@ -68,7 +68,7 @@ Widget title() {
           Text(
             'Workout Helper',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5,
                   shadows: [

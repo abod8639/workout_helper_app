@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 class TaskCard extends StatefulWidget {
   final String? title;
@@ -8,12 +8,12 @@ class TaskCard extends StatefulWidget {
   final void Function()? onTap;
 
   const TaskCard({
-    Key? key,
+    super.key,
     this.title,
     this.imageUrl,
     this.duration = '15 minutes',
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   State<TaskCard> createState() => _TaskCardState();
@@ -34,18 +34,21 @@ class _TaskCardState extends State<TaskCard> with SingleTickerProviderStateMixin
         onTapUp: (_) {
           setState(() => isPressed = false);
           widget.onTap?.call();
-          Get.showSnackbar(
-            GetSnackBar(
-              title: "Send",
-              message: "Task sent successfully!",
-              duration: const Duration(seconds: 1),
-            ),
-          );
+          // Get.showSnackbar(
+          //   GetSnackBar(
+          //     title: "Send",
+          //     message: "Task sent successfully!",
+          //     duration: const Duration(seconds: 1),
+          //   ),
+          // );
         },
         onTapCancel: () => setState(() => isPressed = false),
-        child: AnimatedScale(
-          scale: isPressed ? 0.95 : 1.0,
-          duration: const Duration(milliseconds: 100),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          curve: Curves.easeInOut,
+          transform: Matrix4.identity()
+            ..scale(isPressed ? 0.98 : 1.0)
+            ..translate(0.0, isPressed ? 2.0 : 0.0),
           child: Container(
           height: 160,
           decoration: BoxDecoration(
