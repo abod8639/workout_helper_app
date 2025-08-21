@@ -18,7 +18,7 @@ class TaskList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         children: [
-          taskCard(
+          TaskCard(
             title: "LED-TEST",
             imageUrl:
                 "https://i.pinimg.com/1200x/a9/85/ea/a985ea59bb63d62feb6ad777c44e6813.jpg",
@@ -33,7 +33,7 @@ class TaskList extends StatelessWidget {
               print(controller.fullIP.toString());
             },
           ),
-          taskCard(
+          TaskCard(
             title: "Push-ups",
             imageUrl:
                 "https://i.pinimg.com/1200x/7d/ab/36/7dab366ba4ec4013637117176b94ebed.jpg",
@@ -46,7 +46,7 @@ class TaskList extends StatelessWidget {
               ]);
             },
           ),
-          taskCard(
+          TaskCard(
             title: "Squats",
             imageUrl:
                 "https://i.pinimg.com/736x/ea/fb/f0/eafbf0d366919fe111f07a6953850ef4.jpg",
@@ -59,7 +59,7 @@ class TaskList extends StatelessWidget {
               ]);
             },
           ),
-          taskCard(
+          TaskCard(
             title: "Planks",
             imageUrl:
                 "https://i.pinimg.com/1200x/3a/c6/45/3ac64594cc1e62fdae241994f698939d.jpg",
@@ -69,19 +69,19 @@ class TaskList extends StatelessWidget {
               ]);
             },
           ),
-          taskCard(
+          TaskCard(
             title: "Burpees",
             imageUrl:
                 "https://i.pinimg.com/736x/b6/3a/84/b63a8478915f80faec51e182c31cf124.jpg",
             onTap: () {},
           ),
-          taskCard(
+          TaskCard(
             title: "Jumping Jacks",
             imageUrl:
                 "https://i.pinimg.com/736x/ea/fb/f0/eafbf0d366919fe111f07a6953850ef4.jpg",
             onTap: () {},
           ),
-                    taskCard(
+                    TaskCard(
             title: "Puzzer-toggle",
             imageUrl:
                 "https://i.pinimg.com/736x/7d/58/ed/7d58ed71e86237abc1f31b67d8f08639.jpg",
