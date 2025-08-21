@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget taskCard({
   final String? title,
@@ -15,7 +16,17 @@ Widget taskCard({
         borderRadius: BorderRadius.circular(16),
         splashColor: Colors.white24,
         highlightColor: Colors.white10,
-        onTap: onTap,
+        onTap:(){
+          onTap?.call();
+                        Get.showSnackbar(
+                GetSnackBar(
+
+                  title: "Send",
+                  message: "Task sent successfully!",
+                  duration: const Duration(seconds: 1),
+                ),
+              );
+        },
         child: Container(
           height: 160,
           decoration: BoxDecoration(
