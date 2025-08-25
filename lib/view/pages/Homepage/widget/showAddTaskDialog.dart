@@ -41,7 +41,7 @@ void showAddTaskDialog(BuildContext context) {
                     ),
                     const SizedBox(height: 8),
                     Container(
-                      width: 200,
+                      width: 236,
                       height: 3,
                       decoration: BoxDecoration(
                         color: Colors.blue,
