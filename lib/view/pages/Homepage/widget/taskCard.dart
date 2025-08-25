@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:workout_helper_app/model/ExerciseModel.dart';
+import 'package:workout_helper_app/view/widgets/edit_exercise_dialog.dart';
 
 class TaskCard extends StatefulWidget {
   final String? title;
   final String? imageUrl;
   final String? duration;
   final void Function()? onTap;
+  final ExerciseModel? exercise; // Add this field
 
   const TaskCard({
     super.key,
@@ -13,6 +16,7 @@ class TaskCard extends StatefulWidget {
     this.imageUrl,
     this.duration = '15 minutes',
     this.onTap,
+    this.exercise,
   });
 
   @override
@@ -30,6 +34,11 @@ class _TaskCardState extends State<TaskCard> with SingleTickerProviderStateMixin
       elevation: 8,
       borderRadius: BorderRadius.circular(16),
       child: GestureDetector(
+        onLongPress: () {
+          if (widget.exercise != null) {
+            Get.dialog(EditExerciseDialog(exercise: widget.exercise!));
+          }
+        },
         onTapDown: (_) => setState(() => isPressed = true),
         onTapUp: (_) {
           setState(() => isPressed = false);

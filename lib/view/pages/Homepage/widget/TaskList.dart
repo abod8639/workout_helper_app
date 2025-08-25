@@ -15,6 +15,7 @@ class TaskList extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        
         SizedBox(
           height: 180,
           child: GetBuilder<ExerciseController>(
@@ -30,6 +31,7 @@ class TaskList extends StatelessWidget {
                     width: 140,
                     child: Card(
                       child: InkWell(
+                        
                         onTap: () {
                           Get.dialog(AddExerciseDialog());
                         },
@@ -70,6 +72,7 @@ class TaskList extends StatelessWidget {
                   ...exercises.map((exercise) => TaskCard(
                     title: exercise.title,
                     imageUrl: exercise.imageUrl,
+                    exercise: exercise, // Pass the exercise object
                     onTap: () {
                       controller.sendExercise(exercise);
                     },
