@@ -155,66 +155,11 @@ void showAddTaskDialog(BuildContext context) {
                       style: const TextStyle(color: Colors.blue),
                     ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      TextButton(
-                        onPressed: () => Get.back(),
-                        style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 12,
-                          ),
-                        ),
-                        child: const Text(
-                          'Cancel',
-                          style: TextStyle(color: Colors.white70, fontSize: 16),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 10,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        onPressed: () {
-                          final taskName = exerciseNameController.text.trim();
-                          final hours =
-                              int.tryParse(hoursController.text.trim()) ?? 0;
-                          final minutes =
-                              int.tryParse(minutesController.text.trim()) ?? 0;
-                          final testString = testStringController.text.trim();
-
-                          if (taskName.isNotEmpty) {
-                            sendTask([
-                              TaskModel(
-                                name: taskName,
-                                time: TaskTime(
-                                  hour: hours,
-                                  minute: minutes,
-                                  test: testString,
-                                ),
-                              ),
-                            ]);
-                            Get.back();
-                          }
-                        },
-                        child: const Text(
-                          'Add',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
+                  taskDialogRowButton(
+                    exerciseNameController,
+                    hoursController,
+                    minutesController,
+                    testStringController,
                   ),
                 ],
               ),
@@ -223,6 +168,63 @@ void showAddTaskDialog(BuildContext context) {
         },
       );
     },
+  );
+}
+
+Row taskDialogRowButton(
+  TextEditingController exerciseNameController,
+  TextEditingController hoursController,
+  TextEditingController minutesController,
+  TextEditingController testStringController,
+) {
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      TextButton(
+        onPressed: () => Get.back(),
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        ),
+        child: const Text(
+          'Cancel',
+          style: TextStyle(color: Colors.white70, fontSize: 16),
+        ),
+      ),
+      const SizedBox(width: 8),
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        onPressed: () {
+          final taskName = exerciseNameController.text.trim();
+          final hours = int.tryParse(hoursController.text.trim()) ?? 0;
+          final minutes = int.tryParse(minutesController.text.trim()) ?? 0;
+          final testString = testStringController.text.trim();
+
+          if (taskName.isNotEmpty) {
+            sendTask([
+              TaskModel(
+                name: taskName,
+                time: TaskTime(hour: hours, minute: minutes, test: testString),
+              ),
+            ]);
+            Get.back();
+          }
+        },
+        child: const Text(
+          'Add',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    ],
   );
 }
 
