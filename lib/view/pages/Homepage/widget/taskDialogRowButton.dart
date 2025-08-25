@@ -96,39 +96,17 @@ Builder taskDialogRowButton({
                   ),
                 ),
                 onPressed: () async {
-                  // final taskName = titleController.text.trim();
-                  // final hours =
-                  //     int.tryParse(hoursController.text.trim()) ?? 0;
-                  // final minutes =
-                  //     int.tryParse(minutesController.text.trim()) ?? 0;
-                  // final testString = testStringController.text.trim();
-
-                  // if (taskName.isNotEmpty) {
-                  //   sendTask([
-                  //     TaskModel(
-                  //       name: taskName,
-                  //       time: TaskTime(
-                  //         hour: hours,
-                  //         minute: minutes,
-                  //         test: testString,
-                  //       ),
-                  //     ),
-                  //   ]);
-                  //   Get.back();
-                  // }
                   if (titleController.text.isNotEmpty ) {
                     final hours = int.tryParse(hoursController.text) ?? 0;
                     final minutes = int.tryParse(minutesController.text) ?? 0;
                     final test = testStringController.text;
 
                     await exerciseController.addExercise(
-                      titleController.text,
-                      imageUrlController.text,
-                      TaskTime(hour: hours, minute: minutes, test: test),
-
-                      // test: test
+                      title: titleController.text,
+                      imageUrl: imageUrlController.text,
+                      time: TaskTime(hour: hours, minute: minutes, test: test),
                     );
-
+                    setState(() {});
                     Get.back();
                   }
                 },
