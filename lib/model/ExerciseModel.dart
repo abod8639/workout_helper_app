@@ -14,6 +14,7 @@ class ExerciseModel extends HiveObject {
   @HiveField(2)
   TaskTime time;
 
+
   ExerciseModel({
     required this.title,
     required this.imageUrl,

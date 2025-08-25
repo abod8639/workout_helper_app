@@ -1,85 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:workout_helper_app/controller/exercise_controller.dart';
-import 'package:workout_helper_app/model/TaskTime.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%20.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/taskDialogRowButton.dart';
 
-class AddExerciseDialog extends StatelessWidget {
+class AddExerciseDialog extends StatefulWidget {
+  AddExerciseDialog({super.key});
+
+  @override
+  State<AddExerciseDialog> createState() => _AddExerciseDialogState();
+}
+
+class _AddExerciseDialogState extends State<AddExerciseDialog> {
   final _titleController = TextEditingController();
   final _imageUrlController = TextEditingController();
   final _hoursController = TextEditingController();
   final _minutesController = TextEditingController();
   final _testController = TextEditingController();
 
-  AddExerciseDialog({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final exerciseController = Get.find<ExerciseController>();
-
     return AlertDialog(
       title: const Text('Add New Exercise'),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextField(
+            CustomInputField(
+              keyboardType: TextInputType.text,
               controller: _titleController,
-              decoration: const InputDecoration(labelText: 'Exercise Title'),
+              hintText: 'Exercise Title',
+              prefixIcon: const Icon(Icons.title, color: Colors.white54),
             ),
-            TextField(
+            CustomInputField(
+              keyboardType: TextInputType.url,
               controller: _imageUrlController,
-              decoration: const InputDecoration(labelText: 'Image URL'),
+              hintText: 'Image URL',
+              prefixIcon: const Icon(Icons.image, color: Colors.white54),
             ),
+
             Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    controller: _hoursController,
-                    decoration: const InputDecoration(labelText: 'Hours'),
+                  child: CustomInputField(
                     keyboardType: TextInputType.number,
+
+                    controller: _hoursController,
+                    hintText: 'Hours',
+                    prefixIcon: const Icon(
+                      Icons.schedule,
+                      color: Colors.white54,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 16),
+                // const SizedBox(width: 16),
                 Expanded(
-                  child: TextField(
-                    controller: _minutesController,
-                    decoration: const InputDecoration(labelText: 'Minutes'),
+                  child: CustomInputField(
                     keyboardType: TextInputType.number,
+                    controller: _minutesController,
+                    hintText: 'Minutes',
+                    prefixIcon: const Icon(Icons.timer, color: Colors.white54),
                   ),
                 ),
               ],
             ),
-            TextField(
+            CustomInputField(
+              keyboardType: TextInputType.text,
               controller: _testController,
-              decoration: const InputDecoration(labelText: 'test'),
+              hintText: 'test',
+              prefixIcon: const Icon(
+                Icons.content_paste_go_sharp,
+                color: Colors.white54,
+              ),
             ),
+            // TextField(
+            //   controller: _testController,
+            //   decoration: const InputDecoration(labelText: 'test'),
+            // ),
           ],
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: () => Get.back(),
-          child: const Text('Cancel'),
+        taskDialogRowButton(
+          setState: setState,
+          hoursController: _hoursController,
+          minutesController: _minutesController,
+          titleController: _titleController,
+          testStringController: _testController,
+          imageUrlController: _imageUrlController,
         ),
-        TextButton(
-          onPressed: () async {
-            if (_titleController.text.isNotEmpty &&
-                _imageUrlController.text.isNotEmpty) {
-              final hours = int.tryParse(_hoursController.text) ?? 0;
-              final minutes = int.tryParse(_minutesController.text) ?? 0;
-              final test = _testController.text ;
+        // TextButton(
+        //   onPressed: () => Get.back(),
+        //   child: const Text('Cancel'),
+        // ),
+        // TextButton(
 
-              await exerciseController.addExercise(
-                _titleController.text,
-                _imageUrlController.text,
-                TaskTime(hour: hours, minute: minutes,test: test),
-              );
+        //   onPressed: () async {
+        //     if (_titleController.text.isNotEmpty &&
+        //         _imageUrlController.text.isNotEmpty) {
+        //       final hours = int.tryParse(_hoursController.text) ?? 0;
+        //       final minutes = int.tryParse(_minutesController.text) ?? 0;
+        //       final test = _testController.text ;
 
-              Get.back();
-            }
-          },
-          child: const Text('Add'),
-        ),
+        //       await exerciseController.addExercise(
+        //         _titleController.text,
+        //         _imageUrlController.text,
+        //         TaskTime(hour: hours, minute: minutes,test: test),
+        //       );
+
+        //       Get.back();
+        //     }
+        //   },
+        //   child: const Text('Add'),
+        // ),
       ],
     );
   }

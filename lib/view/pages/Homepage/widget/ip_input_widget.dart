@@ -37,7 +37,7 @@ class IPInputField extends StatelessWidget {
                 onChanged: controller.updateESP32IP,
                 decoration: InputDecoration(
                   prefixText: ESP32Controller.ipPrefix,
-                  hintText: 'Enter IP address',
+                  hintText: '  Enter IP address',
                   prefixStyle: TextStyle(
                     fontSize: 20,
                     color: Colors.grey.shade400,

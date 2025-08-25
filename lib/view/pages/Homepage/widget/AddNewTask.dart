@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workout_helper_app/view/pages/Homepage/widget/showAddTaskDialog.dart';
+import 'package:workout_helper_app/function/showAddTaskDialog.dart';
 
 class AddNewTask extends StatelessWidget {
   const AddNewTask({super.key});

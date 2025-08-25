@@ -20,6 +20,7 @@ class ExerciseModelAdapter extends TypeAdapter<ExerciseModel> {
       title: fields[0] as String,
       imageUrl: fields[1] as String,
       time: fields[2] as TaskTime,
+      // test: fields[3] as String,
     );
   }
 
@@ -33,6 +34,8 @@ class ExerciseModelAdapter extends TypeAdapter<ExerciseModel> {
       ..write(obj.imageUrl)
       ..writeByte(2)
       ..write(obj.time);
+    // ..writeByte(3)
+    // ..write(obj.test);
   }
 
   @override

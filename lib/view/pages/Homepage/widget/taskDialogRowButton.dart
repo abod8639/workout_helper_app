@@ -1,14 +1,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_helper_app/controller/exercise_controller.dart';
 import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/TaskModel.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
 
-Builder taskDialogRowButton( StateSetter setState,  TextEditingController hoursController, TextEditingController minutesController, TextEditingController exerciseNameController, TextEditingController testStringController) {
+Builder taskDialogRowButton( {
+    required StateSetter setState,
+    required TextEditingController hoursController,
+    required TextEditingController minutesController,
+    required TextEditingController titleController,
+    required TextEditingController testStringController,
+    required TextEditingController imageUrlController}) {
   return Builder(
 
     builder: (context) {
+          final exerciseController = Get.find<ExerciseController>();
+
       TimeOfDay? selectedTime;
       return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,6 +52,8 @@ Builder taskDialogRowButton( StateSetter setState,  TextEditingController hoursC
                             minutesController.text = pickedTime.minute
                                 .toString()
                                 .replaceAll("AM", "")
+                                .replaceAll("am", "")
+                                .replaceAll("pm", "")
                                 .replaceAll("PM", "");
                           });
                         }
@@ -85,27 +96,47 @@ Builder taskDialogRowButton( StateSetter setState,  TextEditingController hoursC
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          onPressed: () {
-                            final taskName = exerciseNameController.text.trim();
+                          onPressed: ()async {
+                            final taskName = titleController.text.trim();
                             final hours =
                                 int.tryParse(hoursController.text.trim()) ?? 0;
                             final minutes =
                                 int.tryParse(minutesController.text.trim()) ?? 0;
                             final testString = testStringController.text.trim();
       
-                            if (taskName.isNotEmpty) {
-                              sendTask([
-                                TaskModel(
-                                  name: taskName,
-                                  time: TaskTime(
-                                    hour: hours,
-                                    minute: minutes,
-                                    test: testString,
-                                  ),
-                                ),
-                              ]);
-                              Get.back();
-                            }
+                            // if (taskName.isNotEmpty) {
+                            //   sendTask([
+                            //     TaskModel(
+                            //       name: taskName,
+                            //       time: TaskTime(
+                            //         hour: hours,
+                            //         minute: minutes,
+                            //         test: testString,
+                            //       ),
+                            //     ),
+                            //   ]);
+                            //   Get.back();
+                            // }
+                                        if (titleController.text.isNotEmpty &&
+                imageUrlController.text.isNotEmpty) {
+              final hours = int.tryParse(hoursController.text) ?? 0;
+              final minutes = int.tryParse(minutesController.text) ?? 0;
+              final test = testStringController.text ;
+
+              await exerciseController.addExercise(
+                titleController.text,
+                imageUrlController.text,
+                TaskTime(
+                  hour: hours,
+                   minute: minutes,
+                   test: test,
+                    )
+
+                    // test: test
+              );
+
+              Get.back();
+            }
                           },
                           child: const Text(
                             'Add',

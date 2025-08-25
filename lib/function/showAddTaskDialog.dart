@@ -62,7 +62,7 @@ void showAddTaskDialog(BuildContext context) {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    // const SizedBox(height: 16),
                     Row(
                       children: [
 
@@ -77,7 +77,7 @@ void showAddTaskDialog(BuildContext context) {
                           ),
                         ),
 
-                        const SizedBox(width: 16),
+                        // const SizedBox(width: 16),
 
                         Expanded(
                           child: CustomInputField(
@@ -92,7 +92,7 @@ void showAddTaskDialog(BuildContext context) {
                       ],
                     ),
 
-                    const SizedBox(height: 24),
+                    // const SizedBox(height: 24),
 
                     const Text(
                       'Additional Info',
@@ -119,13 +119,13 @@ void showAddTaskDialog(BuildContext context) {
               ),
             ),
             actions: [
-              taskDialogRowButton(
-                setState,
-                hoursController,
-                minutesController,
-                exerciseNameController,
-                testStringController,
-              ),
+              // taskDialogRowButton(
+              //   setState,
+              //   hoursController,
+              //   minutesController,
+              //   exerciseNameController,
+              //   testStringController,
+              // ),
             ],
           );
         },
