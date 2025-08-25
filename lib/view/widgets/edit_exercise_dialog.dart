@@ -80,10 +80,6 @@ class EditExerciseDialog extends StatelessWidget {
                 color: Colors.white54,
               ),
             ),
-            // TextField(
-            //   controller: _testController,
-            //   decoration: const InputDecoration(labelText: 'test'),
-            // ),
           ],
         ),
       ),

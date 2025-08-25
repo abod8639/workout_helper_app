@@ -71,10 +71,7 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
                 color: Colors.white54,
               ),
             ),
-            // TextField(
-            //   controller: _testController,
-            //   decoration: const InputDecoration(labelText: 'test'),
-            // ),
+
           ],
         ),
       ),
