@@ -8,10 +8,10 @@ import 'package:workout_helper_app/function/SendTask.dart';
 class ExerciseController extends GetxController {
   final exerciseBox = Hive.box<ExerciseModel>('exercises');
 
-  Future<void> addExercise(String title, String imageUrl, TaskTime time , ) async {
+  Future<void> addExercise(String title, String imageUrl, TaskTime time ) async {
     final exercise = ExerciseModel(
       title: title,
-      imageUrl: imageUrl,
+      imageUrl: imageUrl ?? "https://i.pinimg.com/1200x/d9/11/12/d911121ad1e2592a6031e89c730f086c.jpg",
       time: time,
       // test: test
     );

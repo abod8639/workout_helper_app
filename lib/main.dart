@@ -11,11 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   
-  // Register Hive Adapters
   Hive.registerAdapter(TaskTimeAdapter());
-  Hive.registerAdapter(ExerciseModelAdapter());
-  
-  // Open Hive Box
+  Hive.registerAdapter(ExerciseModelAdapter());  
   await Hive.openBox<ExerciseModel>('exercises');
   
   initGetX();
