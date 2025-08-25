@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_helper_app/controller/esp32_controller.Getx.dart';
 import 'package:workout_helper_app/controller/exercise_controller.dart';
 import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
@@ -38,7 +39,7 @@ class TaskList extends StatelessWidget {
                           children: [
                             Icon(Icons.add_circle_outline, size: 40),
                             SizedBox(height: 8),
-                            Text('Add New Exercise', textAlign: TextAlign.center),
+                            Text('Add New\nExercise', textAlign: TextAlign.center),
                           ],
                         ),
                       ),

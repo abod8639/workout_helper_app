@@ -71,7 +71,9 @@ Builder taskDialogRowButton( StateSetter setState,  TextEditingController hoursC
                             style: TextStyle(color: Colors.white70, fontSize: 16),
                           ),
                         ),
+
                         const SizedBox(width: 8),
+                        
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,

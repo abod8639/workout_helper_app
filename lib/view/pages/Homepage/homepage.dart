@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              TaskList(),
+              const TaskList(),
               const SizedBox(height: 20),
               AddNewTask(),
             ],

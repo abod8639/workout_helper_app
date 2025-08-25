@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:workout_helper_app/function/initGetX.Getx.dart';
 import 'package:workout_helper_app/view/pages/Home.dart';
 import 'package:workout_helper_app/app/theme.dart';
+import 'package:workout_helper_app/model/TaskTime.dart';
+import 'package:workout_helper_app/model/ExerciseModel.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  
+  // Register Hive Adapters
+  Hive.registerAdapter(TaskTimeAdapter());
+  Hive.registerAdapter(ExerciseModelAdapter());
+  
+  // Open Hive Box
+  await Hive.openBox<ExerciseModel>('exercises');
+  
   initGetX();
   runApp(const MyApp());
 }
