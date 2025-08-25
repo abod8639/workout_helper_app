@@ -3,7 +3,7 @@
 import 'package:get/get.dart';
 import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
-import 'package:workout_helper_app/model/jsonModel.dart';
+import 'package:workout_helper_app/model/TaskModel.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%20.dart';
 
 void showAddTaskDialog(BuildContext context) {

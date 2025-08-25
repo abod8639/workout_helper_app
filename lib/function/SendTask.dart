@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:workout_helper_app/controller/esp32_controller.Getx.dart';
-import 'package:workout_helper_app/model/jsonModel.dart';
+import 'package:workout_helper_app/model/TaskModel.dart';
 
 Future<bool> sendTask(List<TaskModel> tasks) async {
   final controller = Get.find<ESP32Controller>();
