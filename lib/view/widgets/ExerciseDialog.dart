@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%20.dart';
-import 'package:workout_helper_app/view/pages/Homepage/widget/taskDialogRowButton.dart';
-import 'package:workout_helper_app/view/widgets/ExerciseDialog.dart';
 
-class AddExerciseDialog extends StatefulWidget {
-  AddExerciseDialog({super.key});
+class ExerciseDialog extends StatefulWidget {
+  final List<Widget>? actions;
+  ExerciseDialog({super.key, required this.actions});
 
   @override
-  State<AddExerciseDialog> createState() => _AddExerciseDialogState();
+  State<ExerciseDialog> createState() => _ExerciseDialogState();
 }
 
-class _AddExerciseDialogState extends State<AddExerciseDialog> {
+class _ExerciseDialogState extends State<ExerciseDialog> {
   final _titleController = TextEditingController();
   final _imageUrlController = TextEditingController();
   final _hoursController = TextEditingController();
@@ -19,18 +18,7 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return ExerciseDialog(
-      actions: [        taskDialogRowButton(
-          setState: setState,
-          hoursController: _hoursController,
-          minutesController: _minutesController,
-          titleController: _titleController,
-          testStringController: _testController,
-          imageUrlController: _imageUrlController,
-        ),],
-    );
-    
-    AlertDialog(
+    return AlertDialog(
       title: const Text('Add New Exercise'),
       content: SingleChildScrollView(
         child: Column(
@@ -86,40 +74,7 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
           ],
         ),
       ),
-      actions: [
-        taskDialogRowButton(
-          setState: setState,
-          hoursController: _hoursController,
-          minutesController: _minutesController,
-          titleController: _titleController,
-          testStringController: _testController,
-          imageUrlController: _imageUrlController,
-        ),
-        // TextButton(
-        //   onPressed: () => Get.back(),
-        //   child: const Text('Cancel'),
-        // ),
-        // TextButton(
-
-        //   onPressed: () async {
-        //     if (_titleController.text.isNotEmpty &&
-        //         _imageUrlController.text.isNotEmpty) {
-        //       final hours = int.tryParse(_hoursController.text) ?? 0;
-        //       final minutes = int.tryParse(_minutesController.text) ?? 0;
-        //       final test = _testController.text ;
-
-        //       await exerciseController.addExercise(
-        //         _titleController.text,
-        //         _imageUrlController.text,
-        //         TaskTime(hour: hours, minute: minutes,test: test),
-        //       );
-
-        //       Get.back();
-        //     }
-        //   },
-        //   child: const Text('Add'),
-        // ),
-      ],
+      actions:widget.actions
     );
   }
 }
