@@ -19,7 +19,9 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
   @override
   Widget build(BuildContext context) {
     return ExerciseDialog(
-      actions: [        taskDialogRowButton(
+      title: 'Add New Exercise',
+      actions: [
+        taskDialogRowButton(
           setState: setState,
           hoursController: _hoursController,
           minutesController: _minutesController,

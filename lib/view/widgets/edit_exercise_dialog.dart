@@ -4,6 +4,7 @@ import 'package:workout_helper_app/controller/exercise_controller.dart';
 import 'package:workout_helper_app/model/ExerciseModel.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%20.dart';
+import 'package:workout_helper_app/view/widgets/ExerciseDialog.dart';
 
 class EditExerciseDialog extends StatelessWidget {
   final ExerciseModel exercise;
@@ -27,7 +28,41 @@ class EditExerciseDialog extends StatelessWidget {
 
     final exerciseController = Get.find<ExerciseController>();
 
-    return AlertDialog(
+    return ExerciseDialog(
+      title: 'Edit Exercise',
+      actions: <Widget>[
+        TextButton(onPressed: () => Get.back(), child: const Text('Cancel')),
+        TextButton(
+          onPressed: () {
+            exercise.title = _titleController.text;
+            exercise.imageUrl = _imageUrlController.text;
+            exercise.time = TaskTime(
+              hour: int.tryParse(_hoursController.text) ?? exercise.time.hour,
+              minute:
+                  int.tryParse(_minutesController.text) ?? exercise.time.minute,
+              test: _testController.text.isNotEmpty
+                  ? _testController.text
+                  : exercise.time.test,
+            );
+
+            exercise.save();
+
+            exerciseController.update();
+
+            Get.back();
+            Get.snackbar(
+              'Success',
+              'Exercise updated successfully',
+              snackPosition: SnackPosition.BOTTOM,
+              duration: const Duration(seconds: 2),
+            );
+          },
+          child: const Text('Save'),
+        ),
+      ],
+    );
+    
+    AlertDialog(
       title: const Text('Edit Exercise'),
       content: SingleChildScrollView(
         child: Column(
@@ -84,10 +119,10 @@ class EditExerciseDialog extends StatelessWidget {
         ),
       ),
       actions: [
+
         TextButton(onPressed: () => Get.back(), child: const Text('Cancel')),
         TextButton(
           onPressed: () {
-            // Update exercise values
             exercise.title = _titleController.text;
             exercise.imageUrl = _imageUrlController.text;
             exercise.time = TaskTime(
@@ -99,10 +134,8 @@ class EditExerciseDialog extends StatelessWidget {
                   : exercise.time.test,
             );
 
-            // Save changes
             exercise.save();
 
-            // Update UI
             exerciseController.update();
 
             Get.back();

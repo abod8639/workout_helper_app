@@ -3,7 +3,8 @@ import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%2
 
 class ExerciseDialog extends StatefulWidget {
   final List<Widget>? actions;
-  ExerciseDialog({super.key, required this.actions});
+  final String title;
+  ExerciseDialog({super.key, required this.actions, required this.title});
 
   @override
   State<ExerciseDialog> createState() => _ExerciseDialogState();
@@ -19,7 +20,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Add New Exercise'),
+      title: Text(widget.title),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
