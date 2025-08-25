@@ -13,7 +13,7 @@ class MyHomePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              title(),
+              homePageTitle(),
               const SizedBox(height: 50),
               IPInputField(),
               const SizedBox(height: 20),
@@ -39,7 +39,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-Widget title() {
+Widget homePageTitle() {
   return Builder(
     builder: (context) => Padding(
       padding: const EdgeInsets.only(top: 20.0, left: 16),
