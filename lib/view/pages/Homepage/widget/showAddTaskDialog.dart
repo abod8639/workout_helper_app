@@ -4,6 +4,7 @@ import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
 import 'package:workout_helper_app/model/TaskModel.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/CustomInputField%20.dart';
+import 'package:workout_helper_app/view/pages/Homepage/widget/taskDialogTitle.dart';
 
 void showAddTaskDialog(BuildContext context) {
   final exerciseNameController = TextEditingController();
@@ -11,7 +12,6 @@ void showAddTaskDialog(BuildContext context) {
   final minutesController = TextEditingController();
   final testStringController = TextEditingController();
 
-  TimeOfDay? selectedTime;
 
   showDialog(
     context: context,
@@ -33,6 +33,7 @@ void showAddTaskDialog(BuildContext context) {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
                     const Text(
                       'Exercise Details',
                       style: TextStyle(
@@ -41,7 +42,9 @@ void showAddTaskDialog(BuildContext context) {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(height: 16),
+
                     CustomInputField(
                       controller: exerciseNameController,
                       hintText: 'Exercise Name',
@@ -51,7 +54,9 @@ void showAddTaskDialog(BuildContext context) {
                         color: Colors.white54,
                       ),
                     ),
+
                     const SizedBox(height: 24),
+
                     const Text(
                       'Duration',
                       style: TextStyle(
@@ -63,6 +68,7 @@ void showAddTaskDialog(BuildContext context) {
                     const SizedBox(height: 16),
                     Row(
                       children: [
+
                         Expanded(
                           child: CustomInputField(
                             controller: hoursController,
@@ -73,7 +79,9 @@ void showAddTaskDialog(BuildContext context) {
                             ),
                           ),
                         ),
+
                         const SizedBox(width: 16),
+
                         Expanded(
                           child: CustomInputField(
                             controller: minutesController,
@@ -86,7 +94,9 @@ void showAddTaskDialog(BuildContext context) {
                         ),
                       ],
                     ),
+
                     const SizedBox(height: 24),
+
                     const Text(
                       'Additional Info',
                       style: TextStyle(
@@ -95,7 +105,9 @@ void showAddTaskDialog(BuildContext context) {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     const SizedBox(height: 16),
+
                     CustomInputField(
                       controller: testStringController,
                       hintText: 'Test String',
@@ -110,7 +122,13 @@ void showAddTaskDialog(BuildContext context) {
               ),
             ),
             actions: [
-              taskDialogRowButton(setState, selectedTime, hoursController, minutesController, exerciseNameController, testStringController),
+              taskDialogRowButton(
+                setState,
+                hoursController,
+                minutesController,
+                exerciseNameController,
+                testStringController,
+              ),
             ],
           );
         },
@@ -119,9 +137,11 @@ void showAddTaskDialog(BuildContext context) {
   );
 }
 
-Builder taskDialogRowButton( StateSetter setState, TimeOfDay? selectedTime, TextEditingController hoursController, TextEditingController minutesController, TextEditingController exerciseNameController, TextEditingController testStringController) {
+Builder taskDialogRowButton( StateSetter setState,  TextEditingController hoursController, TextEditingController minutesController, TextEditingController exerciseNameController, TextEditingController testStringController) {
   return Builder(
+
     builder: (context) {
+      TimeOfDay? selectedTime;
       return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -163,7 +183,7 @@ Builder taskDialogRowButton( StateSetter setState, TimeOfDay? selectedTime, Text
                       label: Text(
                         selectedTime == null
                             ? 'Pick Time'
-                            : 'Time: ${selectedTime!.format(context)}',
+                            : 'Time: ${selectedTime.format(context)}',
                         style: const TextStyle(color: Colors.blue),
                       ),
                     ),
@@ -231,33 +251,5 @@ Builder taskDialogRowButton( StateSetter setState, TimeOfDay? selectedTime, Text
                   ],
                 );
     }
-  );
-}
-
-Padding taskDialogTitle() {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 16.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Add New Exercise',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Container(
-          width: 236,
-          height: 3,
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(2),
-          ),
-        ),
-      ],
-    ),
   );
 }
