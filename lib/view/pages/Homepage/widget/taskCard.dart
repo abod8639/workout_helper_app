@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class TaskCard extends StatefulWidget {
   final String? title;
   final String? imageUrl;
-  // final String? duration;
+  final String? duration;
   final void Function()? onTap;
 
   const TaskCard({
     super.key,
     this.title,
     this.imageUrl,
-    // this.duration = '15 minutes',
+    this.duration = '15 minutes',
     this.onTap,
   });
 
@@ -94,14 +94,14 @@ class _TaskCardState extends State<TaskCard> with SingleTickerProviderStateMixin
                         size: 18,
                       ),
                       const SizedBox(width: 8),
-                      // Text(
-                      //   'Training ${widget.duration}',
-                      //   style: const TextStyle(
-                      //     color: Colors.white70,
-                      //     fontSize: 16,
-                      //     fontWeight: FontWeight.w500,
-                      //   ),
-                      // ),
+                      Text(
+                        'Training ${widget.duration}',
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ],
                   ),
                 ],
