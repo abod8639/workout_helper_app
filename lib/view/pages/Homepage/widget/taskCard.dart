@@ -170,7 +170,6 @@ class _TaskCardState extends State<TaskCard>
                     EditExerciseDialog(exercise: widget.exercise!),
                     barrierDismissible: true,
                   ).then((_) {
-                    // Refresh the UI after editing
                     setState(() {});
                   });
                 },

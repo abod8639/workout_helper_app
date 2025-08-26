@@ -43,10 +43,9 @@ Builder taskDialogRowButton({
               if (pickedTime != null) {
                 setState(() {
                   selectedTime = pickedTime;
-                  hoursController.text = pickedTime.hour.toString().replaceAll(
-                    ":",
-                    "",
-                  );
+                  hoursController.text = pickedTime.hour
+                  .toString()
+                  .replaceAll(":","");
                   minutesController.text = pickedTime.minute
                       .toString()
                       .replaceAll("AM", "")
@@ -60,8 +59,7 @@ Builder taskDialogRowButton({
             label: Text(
               selectedTime == null
                   ? 'Pick Time'
-                  :  
-                  'Time: ${selectedTime.format(context)}',
+                  : 'Time: ${selectedTime.format(context)}' ,
               style: const TextStyle(color: Colors.blue),
             ),
           ),

@@ -15,13 +15,12 @@ class TaskList extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-
         SizedBox(
           height: 180,
           child: GetBuilder<ExerciseController>(
             builder: (controller) {
               final exercises = controller.getAllExercises();
-              
+
               return ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 scrollDirection: Axis.horizontal,
@@ -31,7 +30,6 @@ class TaskList extends StatelessWidget {
                     width: 140,
                     child: Card(
                       child: InkWell(
-                        
                         onTap: () {
                           Get.dialog(AddExerciseDialog());
                         },
@@ -40,7 +38,10 @@ class TaskList extends StatelessWidget {
                           children: [
                             Icon(Icons.add_circle_outline, size: 40),
                             SizedBox(height: 8),
-                            Text('Add New Exercise', textAlign: TextAlign.center),
+                            Text(
+                              'Add New Exercise',
+                              textAlign: TextAlign.center,
+                            ),
                           ],
                         ),
                       ),
@@ -49,27 +50,44 @@ class TaskList extends StatelessWidget {
                   // Predefined exercises
                   TaskCard(
                     title: "LED-TEST",
-                    imageUrl: "https://i.pinimg.com/1200x/a9/85/ea/a985ea59bb63d62feb6ad777c44e6813.jpg",
+                    imageUrl:
+                        "https://i.pinimg.com/1200x/a9/85/ea/a985ea59bb63d62feb6ad777c44e6813.jpg",
                     onTap: () {
-                      sendTask([TaskModel(name: "LED-toggle", time: TaskTime(hour: 1, minute: 50, test: "LED-toggle"))]);
+                      sendTask([
+                        TaskModel(
+                          name: "LED-toggle",
+                          time: TaskTime(
+                            hour: 1,
+                            minute: 50,
+                            test: "LED-toggle",
+                          ),
+                        ),
+                      ]);
                     },
                   ),
                   TaskCard(
                     title: "Push-ups",
-                    imageUrl: "https://i.pinimg.com/1200x/7d/ab/36/7dab366ba4ec4013637117176b94ebed.jpg",
+                    imageUrl:
+                        "https://i.pinimg.com/1200x/7d/ab/36/7dab366ba4ec4013637117176b94ebed.jpg",
                     onTap: () {
-                      sendTask([TaskModel(name: "Push-ups", time: TaskTime(hour: 1, minute: 50))]);
+                      sendTask([
+                        TaskModel(
+                          name: "Push-ups",
+                          time: TaskTime(hour: 1, minute: 50),
+                        ),
+                      ]);
                     },
                   ),
-                  // User-added exercises
-                  ...exercises.map((exercise) => TaskCard(
-                    title: exercise.title,
-                    imageUrl: exercise.imageUrl,
-                    exercise: exercise, // Pass the exercise object
-                    onTap: () {
-                      controller.sendExercise(exercise);
-                    },
-                  )).toList(),
+                  ...exercises
+                      .map(
+                        (exercise) => TaskCard(
+                          title: exercise.title,
+                          imageUrl: exercise.imageUrl,
+                          exercise: exercise, // Pass the exercise object
+                          onTap: () => controller.sendExercise(exercise),
+                        ),
+                      )
+                      .toList(),
                 ],
               );
             },

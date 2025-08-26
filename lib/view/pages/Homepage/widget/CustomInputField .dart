@@ -23,9 +23,7 @@ class CustomInputField extends StatelessWidget {
       child: Container(
         width: width,
         decoration: BoxDecoration(
-        // color: Colors.transparent,
           borderRadius: BorderRadius.circular(12),
-          // color: Colors.white.withOpacity(0.05),
         ),
         child: TextField(
           controller: controller,
