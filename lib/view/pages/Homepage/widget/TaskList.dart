@@ -25,29 +25,6 @@ class TaskList extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 scrollDirection: Axis.horizontal,
                 children: [
-                  // Add Exercise Button
-                  SizedBox(
-                    width: 140,
-                    child: Card(
-                      child: InkWell(
-                        onTap: () {
-                          Get.dialog(AddExerciseDialog());
-                        },
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.add_circle_outline, size: 40),
-                            SizedBox(height: 8),
-                            Text(
-                              'Add New Exercise',
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Predefined exercises
                   TaskCard(
                     title: "LED-TEST",
                     imageUrl:
@@ -86,21 +63,44 @@ class TaskList extends StatelessWidget {
                       sendTask([
                         TaskModel(
                           name: "puzzer-toggle",
-                          time: TaskTime(hour: 1, minute: 50,test: "puzzer-toggle"),
+                          time: TaskTime(
+                            hour: 1,
+                            minute: 50,
+                            test: "puzzer-toggle",
+                          ),
                         ),
                       ]);
                     },
                   ),
-                  ...exercises
-                      .map(
-                        (exercise) => TaskCard(
-                          title: exercise.title,
-                          imageUrl: exercise.imageUrl,
-                          exercise: exercise, // Pass the exercise object
-                          onTap: () => controller.sendExercise(exercise),
+                  ...exercises.map(
+                    (exercise) => TaskCard(
+                      title: exercise.title,
+                      imageUrl: exercise.imageUrl,
+                      exercise: exercise, // Pass the exercise object
+                      onTap: () => controller.sendExercise(exercise),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: Card(
+                      child: InkWell(
+                        onTap: () {
+                          Get.dialog(AddExerciseDialog());
+                        },
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add_circle_outline, size: 40),
+                            SizedBox(height: 8),
+                            Text(
+                              'Add New Exercise',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                      )
-                      ,
+                      ),
+                    ),
+                  ),
                 ],
               );
             },
