@@ -87,7 +87,7 @@ class TaskList extends StatelessWidget {
                           onTap: () => controller.sendExercise(exercise),
                         ),
                       )
-                      .toList(),
+                      ,
                 ],
               );
             },

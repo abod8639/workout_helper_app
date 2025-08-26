@@ -3,7 +3,7 @@ import 'package:workout_helper_app/view/pages/Homepage/widget/taskDialogRowButto
 import 'package:workout_helper_app/view/widgets/ExerciseDialog.dart';
 
 class AddExerciseDialog extends StatefulWidget {
-  AddExerciseDialog({super.key});
+  const AddExerciseDialog({super.key});
 
   @override
   State<AddExerciseDialog> createState() => _AddExerciseDialogState();

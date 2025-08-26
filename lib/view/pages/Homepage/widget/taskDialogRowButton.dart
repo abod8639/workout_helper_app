@@ -15,7 +15,7 @@ Builder taskDialogRowButton({
     builder: (context) {
       final exerciseController = Get.find<ExerciseController>();
 
-      TimeOfDay? selectedTime;
+      TimeOfDay selectedTime;
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -57,9 +57,7 @@ Builder taskDialogRowButton({
             },
             icon: const Icon(Icons.access_time, color: Colors.blue),
             label: Text(
-              selectedTime == null
-                  ? 'Pick Time'
-                  : 'Time: ${selectedTime.format(context)}' ,
+              'Pick Time' ,
               style: const TextStyle(color: Colors.blue),
             ),
           ),

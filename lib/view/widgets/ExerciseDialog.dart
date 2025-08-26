@@ -9,7 +9,7 @@ class ExerciseDialog extends StatefulWidget {
   final TextEditingController testController;
   final List<Widget>? actions;
   final String title;
-  ExerciseDialog({
+  const ExerciseDialog({
     super.key,
     required this.actions,
     required this.title,
