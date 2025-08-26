@@ -16,6 +16,7 @@ Builder taskDialogRowButton({
       final exerciseController = Get.find<ExerciseController>();
 
       TimeOfDay selectedTime ;
+      
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
