@@ -78,6 +78,19 @@ class TaskList extends StatelessWidget {
                       ]);
                     },
                   ),
+                  TaskCard(
+                    title: "Puzzer-TEST",
+                    imageUrl:
+                        "https://i.pinimg.com/originals/ee/6e/d5/ee6ed5945d444fb5046149386acec4c8.gif",
+                    onTap: () {
+                      sendTask([
+                        TaskModel(
+                          name: "puzzer-toggle",
+                          time: TaskTime(hour: 1, minute: 50,test: "puzzer-toggle"),
+                        ),
+                      ]);
+                    },
+                  ),
                   ...exercises
                       .map(
                         (exercise) => TaskCard(
