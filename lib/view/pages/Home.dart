@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_helper_app/function/getAppBarTitle.dart';
 import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
 import 'package:workout_helper_app/view/pages/CalorieTrackerPage/calorie_tracker_page.dart';
 import 'package:workout_helper_app/view/pages/HeartRateStatsPage/heart_rate_stats_page.dart';
@@ -36,18 +37,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-String _getAppBarTitle(int index) {
-    switch (index) {
-      case 0:
-        return 'Home';
-      case 1:
-        return 'Heart Rate Stats';
-      case 2:
-        return 'Calorie Tracker';
-      default:
-        return 'Home';
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +45,7 @@ String _getAppBarTitle(int index) {
       child: Scaffold(
         appBar: MyAppBar(
           context: context,
-           title: _getAppBarTitle(_currentIndex),
+           title: getAppBarTitle(_currentIndex),
            ),
         bottomNavigationBar: MyBottomAppBar(
           currentIndex: _currentIndex,
