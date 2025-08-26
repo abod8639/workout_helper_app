@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workout_helper_app/controller/theme_controller.dart';
 import 'package:workout_helper_app/function/initGetX.Getx.dart';
 import 'package:workout_helper_app/view/pages/Home.dart';
 import 'package:workout_helper_app/app/theme.dart';
@@ -16,7 +18,10 @@ void main() async {
   await Hive.openBox<ExerciseModel>('exercises');
   
   initGetX();
-  runApp(const MyApp());
+  SharedPreferences.getInstance().then((prefs) {
+    Get.put(ThemeController(prefs));
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +32,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       home: const Home(),
     );
   }

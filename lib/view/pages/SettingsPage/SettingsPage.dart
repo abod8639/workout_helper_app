@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:workout_helper_app/controller/theme_controller.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/ip_input_widget.dart';
-import 'package:workout_helper_app/view/widgets/MyAppBar.dart';
 
 class SettingsPage extends StatefulWidget {
    const SettingsPage({super.key});
@@ -114,7 +115,17 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(context: context, title: 'Settings'),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          "Settings",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            // color: Theme.of(context).primaryColor,
+          ),
+        )),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 16),
         children: [
@@ -127,12 +138,12 @@ class _SettingsPageState extends State<SettingsPage> {
             child: IPInputField(),
           ),
           _buildSectionTitle('App Settings', Icons.settings),
-          _buildSettingCard(
+          Obx(() => _buildSettingCard(
             title: 'Theme',
             icon: Icons.palette,
             iconColor: Colors.purple,
             child: DropdownButton<String>(
-              value: 'System',
+              value: ThemeController.to.currentTheme,
               isExpanded: true,
               items: ['System', 'Light', 'Dark']
                   .map((String value) => DropdownMenuItem<String>(
@@ -141,42 +152,44 @@ class _SettingsPageState extends State<SettingsPage> {
                       ))
                   .toList(),
               onChanged: (String? newValue) {
-                // TODO: Implement theme switching
+                if (newValue != null) {
+                  ThemeController.to.setTheme(newValue);
+                }
               },
             ),
-          ),
-          _buildSettingCard(
-            title: 'Text Size',
-            subtitle: 'Adjust the size of text throughout the app',
-            icon: Icons.text_fields,
-            iconColor: Colors.green,
-            child: Slider(
-              value: _textScale,
-              min: 0.8,
-              max: 1.4,
-              divisions: 6,
-              label: '${(_textScale * 100).round()}%',
-              onChanged: (value) {
-                setState(() {
-                  _textScale = value;
-                });
-              },
-            ),
-          ),
-          _buildSettingCard(
-            title: 'Notifications',
-            subtitle: 'Receive workout reminders and updates',
-            icon: Icons.notifications,
-            iconColor: Colors.orange,
-            child: Switch(
-              value: _notificationsEnabled,
-              onChanged: (value) {
-                setState(() {
-                  _notificationsEnabled = value;
-                });
-              },
-            ),
-          ),
+          )),
+          // _buildSettingCard(
+          //   title: 'Text Size',
+          //   subtitle: 'Adjust the size of text throughout the app',
+          //   icon: Icons.text_fields,
+          //   iconColor: Colors.green,
+          //   child: Slider(
+          //     value: _textScale,
+          //     min: 0.8,
+          //     max: 1.4,
+          //     divisions: 6,
+          //     label: '${(_textScale * 100).round()}%',
+          //     onChanged: (value) {
+          //       setState(() {
+          //         _textScale = value;
+          //       });
+          //     },
+          //   ),
+          // ),
+          // _buildSettingCard(
+          //   title: 'Notifications',
+          //   subtitle: 'Receive workout reminders and updates',
+          //   icon: Icons.notifications,
+          //   iconColor: Colors.orange,
+          //   child: Switch(
+          //     value: _notificationsEnabled,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         _notificationsEnabled = value;
+          //       });
+          //     },
+          //   ),
+          // ),
           _buildSettingCard(
             title: 'App Version',
             icon: Icons.info,
@@ -189,22 +202,22 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
           ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ElevatedButton(
-              onPressed: () {
-                // TODO: Implement reset settings
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: const Text('Reset All Settings'),
-            ),
-          ),
+          // const SizedBox(height: 16),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16),
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       // TODO: Implement reset settings
+          //     },
+          //     style: ElevatedButton.styleFrom(
+          //       padding: const EdgeInsets.all(16),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(12),
+          //       ),
+          //     ),
+          //     child: const Text('Reset All Settings'),
+          //   ),
+          // ),
         ],
       ),
     );

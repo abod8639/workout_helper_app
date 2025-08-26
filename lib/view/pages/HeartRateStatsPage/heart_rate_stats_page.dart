@@ -114,7 +114,7 @@ class HeartRateStatsPage extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      // color: Colors.white.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: TextButton(
@@ -130,7 +130,7 @@ class HeartRateStatsPage extends StatelessWidget {
                           Text(
                             'See All',
                             style: TextStyle(
-                              color: Colors.white,
+                              // color: Colors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
                             ),

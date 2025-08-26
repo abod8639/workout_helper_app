@@ -22,7 +22,7 @@ MyAppBar({required BuildContext context,required String title}) {
       title: Text(
         title, 
         style: TextStyle(
-          color: Colors.white,
+          color: Theme.of(context).textTheme.titleLarge?.color,
           fontSize: 24,
           fontWeight: FontWeight.w700,
           letterSpacing: -0.5,
@@ -35,10 +35,10 @@ MyAppBar({required BuildContext context,required String title}) {
             icon: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
+                color: Theme.of(context).cardColor.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.settings_outlined, color: Colors.white, size: 25),
+              child: Icon(Icons.settings_outlined, color: Theme.of(context).iconTheme.color, size: 25),
             ),
             onPressed: () => Get.to(()=> SettingsPage()), // Implement settings navigation
           ),

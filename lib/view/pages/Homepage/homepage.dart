@@ -42,14 +42,14 @@ class MyHomePage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.fitness_center,
-                        color: Colors.white.withOpacity(0.9),
+                        // color: Colors.white.withOpacity(0.9),
                         size: 24,
                       ),
                       const SizedBox(width: 12),
                       Text(
                         'Workout Exercises',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.9),
+                          // color: Colors.white.withOpacity(0.9),
                           fontSize: 22,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.5,

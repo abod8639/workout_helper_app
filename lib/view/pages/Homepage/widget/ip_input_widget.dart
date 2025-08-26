@@ -9,8 +9,9 @@ class IPInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<ESP32Controller>();
 
+    final colorh = Theme.of(context).textTheme.bodyLarge?.color;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 5.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
       child: Card(
         elevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -30,7 +31,7 @@ class IPInputField extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey.shade300
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
                 controller: controller.ipInputController,
                 onChanged: controller.updateESP32IP,
@@ -39,7 +40,7 @@ class IPInputField extends StatelessWidget {
                   hintText: '  Enter IP address',
                   prefixStyle: TextStyle(
                     fontSize: 20,
-                    color: Colors.grey.shade400,
+                    color: colorh!.withAlpha(150),
                     fontWeight: FontWeight.bold,
                   ),
                   border: OutlineInputBorder(
