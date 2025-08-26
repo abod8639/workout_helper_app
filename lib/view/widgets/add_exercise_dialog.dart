@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:workout_helper_app/controller/exercise_controller.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/taskDialogRowButton.dart';
 import 'package:workout_helper_app/view/widgets/ExerciseDialog.dart';
 
@@ -35,8 +33,8 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
           titleController: _titleController,
           testStringController: _testController,
           imageUrlController: _imageUrlController ,
-        ),],
+        ),
+      ],
     );
-   
   }
 }

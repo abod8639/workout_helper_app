@@ -18,7 +18,6 @@ class EditExerciseDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize controllers with current values
     _titleController.text = exercise.title;
     _imageUrlController.text = exercise.imageUrl;
     _hoursController.text = exercise.time.hour.toString();

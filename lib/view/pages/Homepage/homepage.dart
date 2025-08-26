@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:workout_helper_app/view/pages/Homepage/widget/AddNewTask.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/TaskList.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/homePageTitle.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/ip_input_widget.dart';
@@ -32,7 +31,7 @@ class MyHomePage extends StatelessWidget {
               const SizedBox(height: 16),
               const TaskList(),
               const SizedBox(height: 20),
-              AddNewTask(),
+              // AddNewTask(),
             ],
           ),
         ),
