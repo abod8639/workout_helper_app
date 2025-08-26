@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/Homepage/homepage.dart';
 import 'package:workout_helper_app/view/pages/CalorieTrackerPage/calorie_tracker_page.dart';
 import 'package:workout_helper_app/view/pages/HeartRateStatsPage/heart_rate_stats_page.dart';
+import 'package:workout_helper_app/view/widgets/MyAppBar.dart';
 import 'package:workout_helper_app/view/widgets/MyBottomAppBar.dart';
 
 class Home extends StatefulWidget {
@@ -35,22 +36,41 @@ class _HomeState extends State<Home> {
     );
   }
 
+String _getAppBarTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Home';
+      case 1:
+        return 'Heart Rate Stats';
+      case 2:
+        return 'Calorie Tracker';
+      default:
+        return 'Home';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: MyBottomAppBar(
-        currentIndex: _currentIndex,
-        onTap: _navigateToPage,
-      ),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          MyHomePage(),
-          HeartRateStatsPage(),
-          CalorieTrackerPage(),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: MyAppBar(
+          context: context,
+           title: _getAppBarTitle(_currentIndex),
+           ),
+        bottomNavigationBar: MyBottomAppBar(
+          currentIndex: _currentIndex,
+          onTap: _navigateToPage,
+        ),
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: _onPageChanged,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            MyHomePage(),
+            HeartRateStatsPage(),
+            CalorieTrackerPage(),
+          ],
+        ),
       ),
     );
   }

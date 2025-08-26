@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/HeartRateStatsPage/widget/buildWorkoutTile.dart';
-import 'package:workout_helper_app/view/widgets/MyAppBar.dart';
 
 class HeartRateStatsPage extends StatelessWidget {
   const HeartRateStatsPage({super.key});
@@ -8,8 +7,7 @@ class HeartRateStatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xFF1A1A1A),
-      appBar: MyAppBar(context),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
