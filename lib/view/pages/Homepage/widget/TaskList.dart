@@ -15,7 +15,7 @@ class TaskList extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        
+
         SizedBox(
           height: 180,
           child: GetBuilder<ExerciseController>(
@@ -59,13 +59,6 @@ class TaskList extends StatelessWidget {
                     imageUrl: "https://i.pinimg.com/1200x/7d/ab/36/7dab366ba4ec4013637117176b94ebed.jpg",
                     onTap: () {
                       sendTask([TaskModel(name: "Push-ups", time: TaskTime(hour: 1, minute: 50))]);
-                    },
-                  ),
-                  TaskCard(
-                    title: "Squats",
-                    imageUrl: "https://i.pinimg.com/736x/ea/fb/f0/eafbf0d366919fe111f07a6953850ef4.jpg",
-                    onTap: () {
-                      sendTask([TaskModel(name: "Squats", time: TaskTime(hour: 4, minute: 20))]);
                     },
                   ),
                   // User-added exercises

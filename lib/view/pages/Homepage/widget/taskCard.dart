@@ -63,8 +63,7 @@ class _TaskCardState extends State<TaskCard>
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                    widget.imageUrl ??
-                        "https://i.pinimg.com/1200x/d9/11/12/d911121ad1e2592a6031e89c730f086c.jpg",
+                    widget.imageUrl! 
                   ),
                   fit: BoxFit.cover,
                 ),
