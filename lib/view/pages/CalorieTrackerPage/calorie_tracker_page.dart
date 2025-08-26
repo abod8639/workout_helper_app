@@ -9,10 +9,6 @@ class CalorieTrackerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      appBar: AppBar(
-        title: const Text('Calorie Tracker'),
-        centerTitle: true,
-      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(

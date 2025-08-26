@@ -1,5 +1,7 @@
 
   import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:workout_helper_app/view/pages/SettingsPage/SettingsPage.dart';
 
 MyAppBar({required BuildContext context,required String title}) {
     return AppBar(
@@ -17,7 +19,8 @@ MyAppBar({required BuildContext context,required String title}) {
       //   ),
       //   onPressed: () {},// Navigator.pop(context),
       // ),
-      title: Text(title, 
+      title: Text(
+        title, 
         style: TextStyle(
           color: Colors.white,
           fontSize: 24,
@@ -32,12 +35,12 @@ MyAppBar({required BuildContext context,required String title}) {
             icon: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withOpacity(0.05),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.settings_outlined, color: Colors.white, size: 20),
+              child: const Icon(Icons.settings_outlined, color: Colors.white, size: 25),
             ),
-            onPressed: () {},
+            onPressed: () => Get.to(()=> SettingsPage()), // Implement settings navigation
           ),
         ),
       ],

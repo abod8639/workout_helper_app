@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/TaskList.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/homePageTitle.dart';
-import 'package:workout_helper_app/view/pages/Homepage/widget/ip_input_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -13,9 +12,8 @@ class MyHomePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              const SizedBox(height: 20),
               homePageTitle(),
-              const SizedBox(height: 50),
-              IPInputField(),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
