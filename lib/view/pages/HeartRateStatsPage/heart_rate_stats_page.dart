@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_helper_app/view/pages/HeartRateStatsPage/widget/buildWorkoutTile.dart';
+import 'package:workout_helper_app/view/pages/HeartRateStatsPage/widget/watchCard.dart';
 
 class HeartRateStatsPage extends StatelessWidget {
   const HeartRateStatsPage({super.key});
@@ -19,26 +20,18 @@ class HeartRateStatsPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Heart Rate History',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: -0.5,
-                        ),
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       SizedBox(height: 4),
                       Text(
                         'Today\'s Activities',
-                        style: TextStyle(
-                          color: Color(0xFF9E9E9E),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        // style:
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),
@@ -80,7 +73,9 @@ class HeartRateStatsPage extends StatelessWidget {
                   ),
                 ],
               ),
+
               const SizedBox(height: 20),
+
               Container(
                 height: 220,
                 padding: const EdgeInsets.all(24),
@@ -89,7 +84,7 @@ class HeartRateStatsPage extends StatelessWidget {
                     colors: [
                       Theme.of(context).colorScheme.surface,
                       Theme.of(context).colorScheme.surface.withOpacity(0.8),
-                      ],
+                    ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -112,27 +107,17 @@ class HeartRateStatsPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Average BPM',
-                              style:
-                               TextStyle(
-                                color: Color(0xFF9E9E9E),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             SizedBox(height: 4),
                             Text(
                               '89 BPM',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: -0.5,
-                              ),
+                              style: Theme.of(context).textTheme.displaySmall,
                             ),
                           ],
                         ),
@@ -175,10 +160,7 @@ class HeartRateStatsPage extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'Heart Rate Graph Here',
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
                     ),
@@ -215,78 +197,5 @@ class HeartRateStatsPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Container watchCard(BuildContext context) {
-    return Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Theme.of(context).primaryColor,
-                    Theme.of(context).primaryColor.withOpacity(0.8),
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).primaryColor.withOpacity(0.2),
-                    blurRadius: 12,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Icon(
-                      Icons.watch,
-                      color: Colors.white,
-                      size: 35,
-                    ),
-                  ),
-                  const SizedBox(width: 20),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Apple Watch 6',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: Colors.greenAccent,
-                            size: 12,
-                          ),
-                          SizedBox(width: 6),
-                          Text(
-                            'Connected',
-                            style: TextStyle(
-                              color: Colors.greenAccent,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
   }
 }
