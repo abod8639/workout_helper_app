@@ -7,7 +7,6 @@ class HeartRateStatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -15,76 +14,7 @@ class HeartRateStatsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      const Color(0xFF2D5CFE),
-                      const Color(0xFF4B7BFF),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(24),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xFF2D5CFE).withOpacity(0.3),
-                      blurRadius: 20,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: const Icon(
-                        Icons.watch,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Apple Watch 6',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.circle,
-                              color: Colors.greenAccent,
-                              size: 12,
-                            ),
-                            SizedBox(width: 6),
-                            Text(
-                              'Connected',
-                              style: TextStyle(
-                                color: Colors.greenAccent,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              watchCard(context),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +50,10 @@ class HeartRateStatsPage extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -154,9 +87,9 @@ class HeartRateStatsPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      const Color(0xFF2A2A2A),
-                      const Color(0xFF1F1F1F),
-                    ],
+                      Theme.of(context).colorScheme.surface,
+                      Theme.of(context).colorScheme.surface.withOpacity(0.8),
+                      ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -184,7 +117,8 @@ class HeartRateStatsPage extends StatelessWidget {
                           children: [
                             Text(
                               'Average BPM',
-                              style: TextStyle(
+                              style:
+                               TextStyle(
                                 color: Color(0xFF9E9E9E),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -203,7 +137,10 @@ class HeartRateStatsPage extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFF2D5CFE).withOpacity(0.2),
                             borderRadius: BorderRadius.circular(20),
@@ -279,5 +216,77 @@ class HeartRateStatsPage extends StatelessWidget {
       ),
     );
   }
-}
 
+  Container watchCard(BuildContext context) {
+    return Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Theme.of(context).primaryColor,
+                    Theme.of(context).primaryColor.withOpacity(0.8),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context).primaryColor.withOpacity(0.2),
+                    blurRadius: 12,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      Icons.watch,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Apple Watch 6',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            color: Colors.greenAccent,
+                            size: 12,
+                          ),
+                          SizedBox(width: 6),
+                          Text(
+                            'Connected',
+                            style: TextStyle(
+                              color: Colors.greenAccent,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+  }
+}

@@ -28,12 +28,10 @@ class AppTheme {
       primary: _primaryLight,
       secondary: _secondaryLight,
       surface: _surfaceLight,
-      background: _backgroundLight,
       error: _errorLight,
       onPrimary: Colors.white,
       onSecondary: Colors.black,
       onSurface: _textLight,
-      onBackground: _textLight,
       onError: Colors.white,
     ),
     appBarTheme: const AppBarTheme(
@@ -146,14 +144,14 @@ class AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
+      thumbColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
           return _primaryLight;
         }
         return _textLightSecondary;
       }),
-      trackColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
+      trackColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
           return _primaryLight.withOpacity(0.5);
         }
         return _textLightSecondary.withOpacity(0.3);

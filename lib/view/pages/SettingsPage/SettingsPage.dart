@@ -4,26 +4,22 @@ import 'package:workout_helper_app/controller/theme_controller.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/ip_input_widget.dart';
 
 class SettingsPage extends StatefulWidget {
-   const SettingsPage({super.key});
+  const SettingsPage({super.key});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _notificationsEnabled = true;
-  double _textScale = 1.0;
+  // bool _notificationsEnabled = true;
+  // double textScale = 1.0;
 
   Widget _buildSectionTitle(String title, IconData icon) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),
       child: Row(
         children: [
-          Icon(
-            icon,
-            size: 24,
-            color: Theme.of(context).primaryColor,
-          ),
+          Icon(icon, size: 24, color: Theme.of(context).primaryColor),
           const SizedBox(width: 8),
           Text(
             title,
@@ -49,9 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
@@ -66,7 +60,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: (iconColor ?? Theme.of(context).primaryColor).withOpacity(0.1),
+                        color: (iconColor ?? Theme.of(context).primaryColor)
+                            .withOpacity(0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
@@ -125,7 +120,8 @@ class _SettingsPageState extends State<SettingsPage> {
             fontWeight: FontWeight.bold,
             // color: Theme.of(context).primaryColor,
           ),
-        )),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 16),
         children: [
@@ -138,40 +134,44 @@ class _SettingsPageState extends State<SettingsPage> {
             child: IPInputField(),
           ),
           _buildSectionTitle('App Settings', Icons.settings),
-          Obx(() => _buildSettingCard(
-            title: 'Theme',
-            icon: Icons.palette,
-            iconColor: Colors.purple,
-            child: DropdownButton<String>(
-              value: ThemeController.to.currentTheme,
-              isExpanded: true,
-              items: ['System', 'Light', 'Dark']
-                  .map((String value) => DropdownMenuItem<String>(
+          Obx(
+            () => _buildSettingCard(
+              title: 'Theme',
+              icon: Icons.palette,
+              iconColor: Colors.purple,
+              child: DropdownButton<String>(
+                value: ThemeController.to.currentTheme,
+                isExpanded: true,
+                items: ['System', 'Light', 'Dark']
+                    .map(
+                      (String value) => DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
-                      ))
-                  .toList(),
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  ThemeController.to.setTheme(newValue);
-                }
-              },
+                      ),
+                    )
+                    .toList(),
+                onChanged: (String? newValue) {
+                  if (newValue != null) {
+                    ThemeController.to.setTheme(newValue);
+                  }
+                },
+              ),
             ),
-          )),
+          ),
           // _buildSettingCard(
           //   title: 'Text Size',
           //   subtitle: 'Adjust the size of text throughout the app',
           //   icon: Icons.text_fields,
           //   iconColor: Colors.green,
           //   child: Slider(
-          //     value: _textScale,
+          //     value: textScale,
           //     min: 0.8,
           //     max: 1.4,
           //     divisions: 6,
-          //     label: '${(_textScale * 100).round()}%',
+          //     label: '${(textScale * 100).round()}%',
           //     onChanged: (value) {
           //       setState(() {
-          //         _textScale = value;
+          //         textScale = value;
           //       });
           //     },
           //   ),
@@ -196,10 +196,7 @@ class _SettingsPageState extends State<SettingsPage> {
             iconColor: Colors.grey,
             child: const Text(
               '1.0.0',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ),
           // const SizedBox(height: 16),

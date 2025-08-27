@@ -3,7 +3,7 @@
 import 'package:get/get.dart';
 import 'package:workout_helper_app/view/pages/SettingsPage/SettingsPage.dart';
 
-MyAppBar({required BuildContext context,required String title}) {
+AppBar MyAppBar({required BuildContext context,required String title}) {
     return AppBar(
       centerTitle: true,
       backgroundColor: Colors.transparent,
