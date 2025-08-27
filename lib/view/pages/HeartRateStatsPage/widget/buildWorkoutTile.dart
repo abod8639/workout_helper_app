@@ -51,7 +51,7 @@ Widget buildWorkoutTile(
                     children: [
                       Text(
                         title,
-                        style: Theme.of(context).textTheme.headlineMedium
+                        style: Theme.of(context).textTheme.titleLarge
                       ),
                       const SizedBox(height: 4),
                       Row(

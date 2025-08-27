@@ -48,6 +48,11 @@ class AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
     textTheme: TextTheme(
+      titleLarge:  TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: _textLight,
+      ),
       displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
