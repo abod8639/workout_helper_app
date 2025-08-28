@@ -34,6 +34,7 @@ class EditExerciseDialog extends StatelessWidget {
       testController: _testController,
       title: 'Edit Exercise',
       actions: <Widget>[
+        
         TextButton(onPressed: () => Get.back(), child: const Text('Cancel')),
         TextButton(
           onPressed: () {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:workout_helper_app/controller/exercise_controller.dart';
-import 'package:workout_helper_app/model/TaskTime.dart';
+
 
 Builder taskDialogRowButton({
   required StateSetter setState,
@@ -10,26 +9,28 @@ Builder taskDialogRowButton({
   required TextEditingController titleController,
   required TextEditingController testStringController,
   required TextEditingController imageUrlController ,
+  required void Function()? onPressed,
+  required String textButton,
 }) {
   return Builder(
     builder: (context) {
-      final exerciseController = Get.find<ExerciseController>();
-
-      TimeOfDay selectedTime ;
       
+      TimeOfDay selectedTime ;
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton.icon(
             onPressed: () async {
               final pickedTime = await showTimePicker(
+                
                 context: context,
                 initialTime: TimeOfDay.now(),
                 hourLabelText: 'Hour',
                 minuteLabelText: 'Minute',
                 builder: (context, child) {
-                  return Theme(
+                  return Theme(          
                     data: ThemeData.dark().copyWith(
+                      
                       colorScheme: const ColorScheme.dark(
                         primary: Colors.blue,
                         onPrimary: Colors.white,
@@ -62,6 +63,7 @@ Builder taskDialogRowButton({
               style: const TextStyle(color: Colors.blue),
             ),
           ),
+
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -75,12 +77,12 @@ Builder taskDialogRowButton({
                 ),
                 child: const Text(
                   'Cancel',
-                  style: TextStyle(color: Colors.white70, fontSize: 16),
+                  style: TextStyle( fontSize: 16),
                 ),
               ),
 
               const SizedBox(width: 8),
-
+              //? add Button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -92,23 +94,9 @@ Builder taskDialogRowButton({
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () async {
-                  if (titleController.text.isNotEmpty ) {
-                    final hours = int.tryParse(hoursController.text) ?? 0;
-                    final minutes = int.tryParse(minutesController.text) ?? 0;
-                    final test = testStringController.text;
-
-                    await exerciseController.addExercise(
-                      title: titleController.text,
-                      imageUrl: imageUrlController.text,
-                      time: TaskTime(hour: hours, minute: minutes, test: test),
-                    );
-                    setState(() {});
-                    Get.back();
-                  }
-                },
-                child: const Text(
-                  'Add',
+                onPressed: onPressed,
+                child: Text(
+                  textButton,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
