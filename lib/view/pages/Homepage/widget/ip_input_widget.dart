@@ -13,8 +13,10 @@ class IPInputField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(13.0),
+        ),
         elevation: 3,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -27,27 +29,36 @@ class IPInputField extends StatelessWidget {
                 ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              TextFormField(
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
-                controller: controller.ipInputController,
-                onChanged: controller.updateESP32IP,
-                decoration: InputDecoration(
-                  prefixText: ESP32Controller.ipPrefix,
-                  hintText: '  Enter IP address',
-                  prefixStyle: TextStyle(
+              
+              Container(
+                        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(11),
+          border: Border.all(color: Colors.blue, width: 2),
+        ),
+                child: TextFormField(
+                  style: TextStyle(
                     fontSize: 20,
-                    color: colorh!.withAlpha(150),
                     fontWeight: FontWeight.bold,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                  controller: controller.ipInputController,
+                  onChanged: controller.updateESP32IP,
+                  decoration: InputDecoration(
+                    prefixText: ESP32Controller.ipPrefix,
+                    hintText: '  Enter IP address',
+                    prefixStyle: TextStyle(
+                      fontSize: 20,
+                      color: colorh!.withAlpha(150),
+                      fontWeight: FontWeight.bold,
+                    ),
+                    border: OutlineInputBorder(
+                
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
+                  keyboardType: TextInputType.number,
                 ),
-                keyboardType: TextInputType.number,
               ),
             ],
           ),

@@ -126,6 +126,7 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: const EdgeInsets.symmetric(vertical: 16),
         children: [
           _buildSectionTitle('Connection Settings', Icons.wifi),
+          
           _buildSettingCard(
             title: 'ESP32 IP Address',
             subtitle: 'Enter the IP address of your ESP32 device',
