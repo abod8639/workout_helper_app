@@ -37,16 +37,14 @@ class _HomeState extends State<Home> {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: MyAppBar(
           context: context,
-           title: getAppBarTitle(_currentIndex),
-           ),
+          title: getAppBarTitle(_currentIndex),
+        ),
         bottomNavigationBar: MyBottomAppBar(
           currentIndex: _currentIndex,
           onTap: _navigateToPage,
