@@ -37,23 +37,22 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
           minutesController: _minutesController,
           titleController: _titleController,
           testStringController: _testController,
-          imageUrlController: _imageUrlController ,
+          imageUrlController: _imageUrlController,
           onPressed: () async {
+            if (_titleController.text.isNotEmpty) {
+              final hours = int.tryParse(_hoursController.text) ?? 0;
+              final minutes = int.tryParse(_minutesController.text) ?? 0;
+              final test = _testController.text;
 
-                  if (_titleController.text.isNotEmpty ) {
-                    final hours = int.tryParse(_hoursController.text) ?? 0;
-                    final minutes = int.tryParse(_minutesController.text) ?? 0;
-                    final test = _testController.text;
-
-                    await exerciseController.addExercise(
-                      title: _titleController.text,
-                      imageUrl: _imageUrlController.text,
-                      time: TaskTime(hour: hours, minute: minutes, test: test),
-                    );
-                    setState(() {});
-                    Get.back();
-                  }
-                },
+              await exerciseController.addExercise(
+                title: _titleController.text,
+                imageUrl: _imageUrlController.text,
+                time: TaskTime(hour: hours, minute: minutes, test: test),
+              );
+              setState(() {});
+              Get.back();
+            }
+          },
         ),
       ],
     );
