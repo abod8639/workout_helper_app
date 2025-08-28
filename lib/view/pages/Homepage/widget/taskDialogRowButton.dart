@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 Builder taskDialogRowButton({
   required StateSetter setState,
   required TextEditingController hoursController,
   required TextEditingController minutesController,
   required TextEditingController titleController,
   required TextEditingController testStringController,
-  required TextEditingController imageUrlController ,
+  required TextEditingController imageUrlController,
   required void Function()? onPressed,
   required String textButton,
 }) {
   return Builder(
     builder: (context) {
-      
-      TimeOfDay selectedTime ;
+      TimeOfDay selectedTime;
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton.icon(
             onPressed: () async {
               final pickedTime = await showTimePicker(
-                
                 context: context,
                 initialTime: TimeOfDay.now(),
                 hourLabelText: 'Hour',
                 minuteLabelText: 'Minute',
                 builder: (context, child) {
-                  return Theme(          
+                  return Theme(
                     data: ThemeData.dark().copyWith(
-                      
                       colorScheme: const ColorScheme.dark(
                         primary: Colors.blue,
                         onPrimary: Colors.white,
@@ -45,9 +41,10 @@ Builder taskDialogRowButton({
               if (pickedTime != null) {
                 setState(() {
                   selectedTime = pickedTime;
-                  hoursController.text = pickedTime.hour
-                  .toString()
-                  .replaceAll(":","");
+                  hoursController.text = pickedTime.hour.toString().replaceAll(
+                    ":",
+                    "",
+                  );
                   minutesController.text = pickedTime.minute
                       .toString()
                       .replaceAll("AM", "")
@@ -59,7 +56,7 @@ Builder taskDialogRowButton({
             },
             icon: const Icon(Icons.access_time, color: Colors.blue),
             label: Text(
-              'Pick Time' ,
+              'Pick Time',
               style: const TextStyle(color: Colors.blue),
             ),
           ),
@@ -75,10 +72,7 @@ Builder taskDialogRowButton({
                     vertical: 12,
                   ),
                 ),
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle( fontSize: 16),
-                ),
+                child: const Text('Cancel', style: TextStyle(fontSize: 16)),
               ),
 
               const SizedBox(width: 8),

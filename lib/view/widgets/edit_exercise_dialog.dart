@@ -52,13 +52,16 @@ class _EditExerciseDialogState extends State<EditExerciseDialog> {
           titleController: _titleController,
           testStringController: _testController,
           imageUrlController: _imageUrlController,
-          onPressed:  ()async {
+          onPressed: () async {
             widget.exercise.title = _titleController.text;
             widget.exercise.imageUrl = _imageUrlController.text;
             widget.exercise.time = TaskTime(
-              hour: int.tryParse(_hoursController.text) ?? widget.exercise.time.hour,
+              hour:
+                  int.tryParse(_hoursController.text) ??
+                  widget.exercise.time.hour,
               minute:
-                  int.tryParse(_minutesController.text) ?? widget.exercise.time.minute,
+                  int.tryParse(_minutesController.text) ??
+                  widget.exercise.time.minute,
               test: _testController.text.isNotEmpty
                   ? _testController.text
                   : widget.exercise.time.test,
@@ -78,7 +81,6 @@ class _EditExerciseDialogState extends State<EditExerciseDialog> {
           },
         ),
       ],
-
     );
   }
 }

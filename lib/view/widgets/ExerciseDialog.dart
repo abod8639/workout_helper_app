@@ -37,7 +37,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
               keyboardType: TextInputType.text,
               controller: widget.titleController,
               hintText: 'Exercise Title',
-              prefixIcon: const Icon(Icons.title ),
+              prefixIcon: const Icon(Icons.title),
             ),
             CustomInputField(
               keyboardType: TextInputType.url,
@@ -54,10 +54,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
 
                     controller: widget.hoursController,
                     hintText: 'Hours',
-                    prefixIcon: const Icon(
-                      Icons.schedule,
-                      
-                    ),
+                    prefixIcon: const Icon(Icons.schedule),
                   ),
                 ),
                 // const SizedBox(width: 16),
@@ -75,10 +72,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
               keyboardType: TextInputType.text,
               controller: widget.testController,
               hintText: 'test',
-              prefixIcon: const Icon(
-                Icons.content_paste_go_sharp,
-                
-              ),
+              prefixIcon: const Icon(Icons.content_paste_go_sharp),
             ),
           ],
         ),
