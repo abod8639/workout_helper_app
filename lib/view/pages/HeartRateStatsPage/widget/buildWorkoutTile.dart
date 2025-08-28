@@ -11,10 +11,9 @@ Widget buildWorkoutTile(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                                      Theme.of(context).colorScheme.surface,
-                      Theme.of(context).colorScheme.surface.withOpacity(0.8),
-                          // Theme.of(context).primaryColor,
-                          // Theme.of(context).primaryColor.withOpacity(0.8),
+                Theme.of(context).colorScheme.surface,
+                Theme.of(context).colorScheme.surface.withOpacity(0.8),
+
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
