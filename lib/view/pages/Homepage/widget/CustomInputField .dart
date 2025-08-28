@@ -23,11 +23,13 @@ class CustomInputField extends StatelessWidget {
       child: Container(
         width: width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(13),
+          border: Border.all(
+            color: Colors.blue, width: 2
+          )
         ),
         child: TextField(
           controller: controller,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
           keyboardType: keyboardType,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(
@@ -35,20 +37,18 @@ class CustomInputField extends StatelessWidget {
               vertical: 16,
             ),
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
             prefixIcon: prefixIcon != null
                 ? Padding(
                     padding: const EdgeInsets.only(left: 16, right: 8),
                     child: prefixIcon,
-                  )
-                : null,
+                  ): null,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(11),
+              borderSide: BorderSide(color: Colors.blue, width: 2),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.blue, width: 2),
+              borderRadius: BorderRadius.circular(11),
+              borderSide: BorderSide(color: Colors.blue, width: 2),
             ),
             fillColor: Colors.transparent,
             filled: true,
