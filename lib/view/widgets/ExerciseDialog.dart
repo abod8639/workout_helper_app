@@ -37,13 +37,13 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
               keyboardType: TextInputType.text,
               controller: widget.titleController,
               hintText: 'Exercise Title',
-              prefixIcon: const Icon(Icons.title, color: Colors.white54),
+              prefixIcon: const Icon(Icons.title ),
             ),
             CustomInputField(
               keyboardType: TextInputType.url,
               controller: widget.imageUrlController,
               hintText: 'Image URL',
-              prefixIcon: const Icon(Icons.image, color: Colors.white54),
+              prefixIcon: const Icon(Icons.image),
             ),
 
             Row(
@@ -56,7 +56,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
                     hintText: 'Hours',
                     prefixIcon: const Icon(
                       Icons.schedule,
-                      color: Colors.white54,
+                      
                     ),
                   ),
                 ),
@@ -66,7 +66,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
                     keyboardType: TextInputType.number,
                     controller: widget.minutesController,
                     hintText: 'Minutes',
-                    prefixIcon: const Icon(Icons.timer, color: Colors.white54),
+                    prefixIcon: const Icon(Icons.timer),
                   ),
                 ),
               ],
@@ -77,7 +77,7 @@ class _ExerciseDialogState extends State<ExerciseDialog> {
               hintText: 'test',
               prefixIcon: const Icon(
                 Icons.content_paste_go_sharp,
-                color: Colors.white54,
+                
               ),
             ),
           ],
