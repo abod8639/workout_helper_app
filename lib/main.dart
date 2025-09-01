@@ -12,14 +12,17 @@ import 'package:workout_helper_app/model/ExerciseModel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
-  
-  Hive.registerAdapter(TaskTimeAdapter());
-  Hive.registerAdapter(ExerciseModelAdapter());  
+
+        Hive.registerAdapter(TaskTimeAdapter());
+        Hive.registerAdapter(ExerciseModelAdapter());  
   await Hive.openBox<ExerciseModel>('exercises');
-      await Hive.initFlutter();
-    await Future.wait([
-      Hive.openBox(HabitStorage.boxName),
+  await Hive.initFlutter();
+
+  await Future.wait([
+    
+        Hive.openBox(HabitStorage.boxName),
       // Hive.openBox(ThemeStorageService.themeBox),
       // Hive.openBox(LangStorage.boxName),
     ]);

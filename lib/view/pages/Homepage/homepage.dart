@@ -31,62 +31,64 @@ class MyHomePage extends StatelessWidget {
             homePageTitle(),
             // const SizedBox(height: 32),
             // Middle: Monthly Summary
-            Expanded(
-              
-              flex: 2,
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: SingleChildScrollView(
-                  reverse: true,
-                  key: ValueKey<String>(controller.getStartDay()),
-                  scrollDirection: Axis.horizontal,
-                  child: MonthlySummary(
-                    datasets: controller.db.heatmapDateSet,
+            Center(
+              child: Expanded(
+                flex: 2,
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: SingleChildScrollView(
+                    reverse: true,
+                    key: ValueKey<String>(controller.getStartDay()),
+                    scrollDirection: Axis.horizontal,
+                    child: MonthlySummary(
+                      datasets: controller.db.heatmapDateSet,
+                    ),
                   ),
                 ),
               ),
             ),
             // const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: Theme.of(context).primaryColor.withOpacity(0.2),
-                    width: 1,
-                  ),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.fitness_center,
-                      // color: Colors.white.withOpacity(0.9),
-                      size: 24,
-                    ),
-                    const SizedBox(width: 12),
-                    Text(
-                      'Workout Exercises',
-                      style: TextStyle(
-                        // color: Colors.white.withOpacity(0.9),
-                        fontSize: 22,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            titleCard(context, "Workout Exercises"),
             const SizedBox(height: 24),
             Expanded(child: const TaskList()),
             const SizedBox(height: 24),
             // AddNewTask(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding titleCard(BuildContext context, String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: Theme.of(context).primaryColor.withOpacity(0.2),
+            width: 1,
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: [
+            Icon(
+              Icons.fitness_center,
+              // color: Colors.white.withOpacity(0.9),
+              size: 24,
+            ),
+            const SizedBox(width: 12),
+            Text(
+              title,
+              style: TextStyle(
+                // color: Colors.white.withOpacity(0.9),
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+              ),
+            ),
           ],
         ),
       ),

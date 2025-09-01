@@ -9,7 +9,7 @@ import 'package:workout_helper_app/view/widgets/ExerciseDialog.dart';
 class EditExerciseDialog extends StatefulWidget {
   final ExerciseModel exercise;
 
-  EditExerciseDialog({super.key, required this.exercise});
+  const EditExerciseDialog({super.key, required this.exercise});
 
   @override
   State<EditExerciseDialog> createState() => _EditExerciseDialogState();

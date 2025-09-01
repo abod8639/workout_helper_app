@@ -98,7 +98,7 @@ class _MonthlySummaryState extends State<MonthlySummary>
                 showColorTip: false,
                 showText: true,
                 scrollable: true,
-                size: heatMapSize,
+                size: 37,// heatMapSize,
                 // size: topPadding,
                 colorsets: colorsets,
               ),
@@ -116,7 +116,7 @@ class _MonthlySummaryState extends State<MonthlySummary>
                 showColorTip: false,
                 showText: true,
                 scrollable: true,
-                size: heatMapSize,
+                size:37,// heatMapSize,
                 // size: topPadding,
                 colorsets: colorsets,
                 onClick: (value) {
