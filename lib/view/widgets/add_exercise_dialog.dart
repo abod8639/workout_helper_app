@@ -30,6 +30,7 @@ class _AddExerciseDialogState extends State<AddExerciseDialog> {
       testController: _testController,
       title: 'Add New Exercise',
       actions: [
+        
         taskDialogRowButton(
           textButton: "Add",
           setState: setState,

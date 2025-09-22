@@ -30,7 +30,7 @@ class HabitLocalDataSource {
     _myBox.put(today, todaysHabitList);
 
     for (var habit in habits) {
-      final String historyKey = "${habit.name}_$today";
+      final String historyKey = "${habit.taskTime}_$today";
       _myBox.put(historyKey, habit.isCompleted);
     }
   }
@@ -79,7 +79,18 @@ class HabitLocalDataSource {
     return null;
   }
 
-  Future<void> markLastSyncTime() async {
+  Future<void> markLastSyncTime() async {  // void toggleHabitByIndex(int index, bool value) {
+  //   if (index >= 0 && index < _habits.length) {
+  //     final habit = _habits[index];
+  //     habit.isCompleted = value;
+  //     habit.completedAt = value ? DateTime.now() : null;
+
+  //     _localDataSource.saveHabitCompletionHistory(habit.taskTime.toJson(), value);
+
+  //     _dataChanged = true;
+  //     // updateData();
+  //   }
+  // }
     _myBox.put('last_sync', DateTime.now().toIso8601String());
   }
 }

@@ -1,6 +1,7 @@
 // habit_storage.dart
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:workout_helper_app/model/TaskTime.dart';
 import 'package:workout_helper_app/test/test1.dart';
 import 'package:workout_helper_app/test/test3.dart';
 
@@ -22,16 +23,19 @@ class HabitStorage {
   static List<HabitModel> defaultHabits = [
     HabitModel(
       name: "install the app",
+      taskTime: TaskTime(hour: 0, minute: 5),
       isCompleted: true,
       createdAt: DateTime.now(),
     ),
 
     HabitModel(
+      taskTime: TaskTime(hour: 1, minute: 5),
       name: "💧 Drink water",
       isCompleted: false,
       createdAt: DateTime.now(),
     ),
     HabitModel(
+      taskTime: TaskTime(hour: 2, minute: 5),
       name: "🎯 Learn something new",
       isCompleted: false,
       createdAt: DateTime.now(),

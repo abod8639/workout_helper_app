@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:workout_helper_app/model/TaskTime.dart';
 import 'package:workout_helper_app/test/test1.dart';
 import 'package:workout_helper_app/test/test2.dart';
 import 'package:workout_helper_app/test/test3.dart';
@@ -126,7 +127,8 @@ class Habitdb {
           id: '1',
           name: "Read a Book",
           isCompleted: true,
-          createdAt: DateTime.now()),
+          createdAt: DateTime.now(),
+          taskTime: TaskTime(hour: 1, minute: 30)),
     ];
     _localDataSource.setStartDate();
     // updateData();
@@ -180,7 +182,7 @@ class Habitdb {
     return _habits
         .where((habit) => !habit.isCompleted)
         .map((habit) =>
-            {"id": habit.id, "name": habit.name, "completed": habit.isCompleted})
+            {"id": habit.id, "task_time": habit.taskTime.toJson(), "completed": habit.isCompleted})
         .toList();
   }
 
@@ -188,7 +190,7 @@ class Habitdb {
     return _habits
         .where((habit) => habit.isCompleted)
         .map((habit) =>
-            {"id": habit.id, "name": habit.name, "completed": habit.isCompleted})
+            {"id": habit.id, "task_time": habit.taskTime.toJson(), "completed": habit.isCompleted})
         .toList();
   }
 
@@ -268,6 +270,7 @@ class Habitdb {
         name: name,
         isCompleted: false,
         createdAt: DateTime.now(),
+        taskTime: TaskTime(hour: 1, minute: 30),
       ),
     );
     _dataChanged = true;
@@ -276,7 +279,8 @@ class Habitdb {
 
   void editHabitByIndex(int index, String newName) {
     if (index >= 0 && index < _habits.length) {
-      _habits[index].name = newName;
+      _habits[index].taskTime = TaskTime.fromJson({'hour': 1, 'minute': 30});
+
       _dataChanged = true;
       // updateData();
     }

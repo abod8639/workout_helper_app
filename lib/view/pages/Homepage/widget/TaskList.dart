@@ -4,6 +4,7 @@ import 'package:workout_helper_app/controller/exercise_controller.dart';
 import 'package:workout_helper_app/function/SendTask.dart';
 import 'package:workout_helper_app/model/TaskTime.dart';
 import 'package:workout_helper_app/model/TaskModel.dart';
+import 'package:workout_helper_app/test/test3.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/taskCard.dart';
 import 'package:workout_helper_app/view/widgets/add_exercise_dialog.dart';
 
@@ -30,16 +31,24 @@ class TaskList extends StatelessWidget {
                     imageUrl:
                         "https://i.pinimg.com/1200x/a9/85/ea/a985ea59bb63d62feb6ad777c44e6813.jpg",
                     onTap: () {
-                      sendTask([
-                        TaskModel(
-                          name: "LED-toggle",
-                          time: TaskTime(
-                            hour: 1,
-                            minute: 50,
-                            test: "LED-toggle",
-                          ),
-                        ),
-                      ]);
+                      HabitModel(
+                        createdAt: DateTime.now(),
+                        isCompleted: false,
+                        name: "LED-TEST",
+                        taskTime: TaskTime(hour: 1, minute: 50),
+                        completedAt: null,
+                        id: "1",
+                      );
+                      // sendTask([
+                      //   TaskModel(
+                      //     name: "LED-toggle",
+                      //     time: TaskTime(
+                      //       hour: 1,
+                      //       minute: 50,
+                      //       test: "LED-toggle",
+                      //     ),
+                      //   ),
+                      // ]);
                     },
                   ),
                   TaskCard(

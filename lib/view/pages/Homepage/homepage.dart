@@ -27,28 +27,31 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // const SizedBox(height: 24),
+
             homePageTitle(),
-            // const SizedBox(height: 32),
+
+            
             // Middle: Monthly Summary
-            Center(
-              child: Expanded(
-                flex: 2,
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: SingleChildScrollView(
-                    reverse: true,
-                    key: ValueKey<String>(controller.getStartDay()),
-                    scrollDirection: Axis.horizontal,
-                    child: MonthlySummary(
-                      datasets: controller.db.heatmapDateSet,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            // const SizedBox(height: 32),
+            // Center(
+            //   child: Expanded(
+            //     flex: 2,
+            //     child: AnimatedSwitcher(
+            //       duration: const Duration(milliseconds: 300),
+            //       child: SingleChildScrollView(
+            //         reverse: true,
+            //         key: ValueKey<String>(controller.getStartDay()),
+            //         scrollDirection: Axis.horizontal,
+            //         child: MonthlySummary(
+            //           datasets: controller.db.heatmapDateSet,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+
+            const SizedBox(height: 100),
             titleCard(context, "Workout Exercises"),
+            const SizedBox(height: 100),
             const SizedBox(height: 24),
             Expanded(child: const TaskList()),
             const SizedBox(height: 24),
@@ -82,12 +85,14 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               title,
-              style: TextStyle(
-                // color: Colors.white.withOpacity(0.9),
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.5,
-              ),
+              style: Theme.of(context).textTheme.displaySmall, 
+              // TextStyle(
+              //   // color: Colors.white.withOpacity(0.9),
+              //   fontSize: 22,
+              //   fontWeight: FontWeight.w600,
+              //   // color: ,
+              //   letterSpacing: 0.5,
+              // ),
             ),
           ],
         ),

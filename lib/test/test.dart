@@ -73,9 +73,9 @@ class _MonthlySummaryState extends State<MonthlySummary>
     // Removed unused and erroneous MediaQuerysize function.
 
     final double topPadding = MediaQuery.of(context).size.width * 0.05;
-    final double mHeatMapSize = MediaQuery.of(context).size.height * 0.075;
-    final double heatMapSize =
-        MediaQuery.of(context).size.width > 600 ? mHeatMapSize : 37;
+    // final double mHeatMapSize = MediaQuery.of(context).size.height * 0.075;
+    // final double heatMapSize =
+    //     MediaQuery.of(context).size.width > 600 ? mHeatMapSize : 37;
 
     return FadeTransition(
       opacity: _fadeAnimation,
