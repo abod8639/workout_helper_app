@@ -183,6 +183,13 @@ class AppTheme {
     ),
     cardColor: _surfaceDark,
     textTheme: const TextTheme(
+
+        displaySmall: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: _textDark,
+      ),
+      
       displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,

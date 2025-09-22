@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:workout_helper_app/controller/testcontroller.dart';
-import 'package:workout_helper_app/test/test.dart';
+// import 'package:get/get.dart';
+// import 'package:workout_helper_app/controller/testcontroller.dart';
+// import 'package:workout_helper_app/test/test.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/TaskList.dart';
 import 'package:workout_helper_app/view/pages/Homepage/widget/homePageTitle.dart';
 
@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HabitController controller = Get.put(HabitController());
+    // final HabitController controller = Get.put(HabitController());
 
     return Scaffold(
       body: Container(
@@ -64,7 +64,9 @@ class MyHomePage extends StatelessWidget {
 
   Padding titleCard(BuildContext context, String title) {
     return Padding(
+
       padding: const EdgeInsets.symmetric(horizontal: 20),
+
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor.withOpacity(0.1),
@@ -79,8 +81,9 @@ class MyHomePage extends StatelessWidget {
           children: [
             Icon(
               Icons.fitness_center,
+              color: Theme.of(context).colorScheme.primary,
               // color: Colors.white.withOpacity(0.9),
-              size: 24,
+              size: 26,
             ),
             const SizedBox(width: 12),
             Text(
